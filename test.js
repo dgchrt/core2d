@@ -659,9 +659,9 @@ function setup() {
 					style: {},
 					width: 640,
 				};
-			} else {
-				return {};
 			}
+
+			return {};
 		},
 		getElementsByTagName: () => {
 			return [];

@@ -25,6 +25,6 @@
 	"homepage": "https://github.com/diogoeichert/videogame#readme",
 	"devDependencies": {
 		"eslint": "^7.17.0",
-		"eslint-config-perfect": "^1.0.0"
+		"eslint-config-classic": "^0.1.0"
 	}
 }

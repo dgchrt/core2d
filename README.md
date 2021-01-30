@@ -1,9 +1,9 @@
+[![code style](https://img.shields.io/badge/code_style-classic-blue.svg)](http://diogoeichert.github.io/eslint-config-classic)
 [![downloads](https://img.shields.io/npm/dt/videogame.svg)](https://www.npmjs.com/package/videogame)
-[![eslint config](https://img.shields.io/badge/eslint%20config-standard%20js-blue)](http://diogoeichert.github.io/eslint-config-standard-js)
 [![license](https://img.shields.io/github/license/diogoeichert/videogame.svg)](LICENSE)
 [![npm version](https://img.shields.io/npm/v/videogame.svg)](https://www.npmjs.com/package/videogame)
 
-# Videogame
+# videogame
 Multiplatform game engine
 
 *"Simplicity is the ultimate sophistication." - Leonardo da Vinci*

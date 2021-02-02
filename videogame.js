@@ -540,7 +540,7 @@
 			this._id = id;
 			this.analogThreshold = 0.5;
 			this.layout = ButtonLayout.standard;
-			const MODEL = getGamePads()[id].id.toLowerCase();
+			const MODEL = getGamepads()[id].id.toLowerCase();
 
 			for (let id in ButtonLayoutMap) {
 				if (MODEL.includes(id)) {
@@ -611,16 +611,16 @@
 		}
 
 		static getGamePadAxes(id) {
-			if (getGamePads()[id]) {
-				return getGamePads()[id].axes;
+			if (getGamepads()[id]) {
+				return getGamepads()[id].axes;
 			}
 
 			return [];
 		}
 
 		static getGamePadButtons(id) {
-			const GAME_PAD = getGamePads()[id];
-			return GAME_PAD && GAME_PAD.buttons || [];
+			const GAMEPAD = getGamepads()[id];
+			return GAMEPAD && GAMEPAD.buttons || [];
 		}
 
 		addController(device) {
@@ -634,7 +634,7 @@
 		}
 
 		checkGamePads() {
-			if (getGamePads()[this._gamePads]) {
+			if (getGamepads()[this._gamePads]) {
 				console.log("Game pad detected.");
 				this.addController(new GamePad(this._gamePads++));
 			}
@@ -2099,7 +2099,7 @@
 		return document.getElementsByTagName(name);
 	}
 
-	function getGamePads() {
+	function getGamepads() {
 		return navigator.getGamepads && navigator.getGamepads() || [];
 	}
 

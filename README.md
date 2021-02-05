@@ -13,6 +13,22 @@ Videogame is the powerhouse used by [Magato Entertainment](http://cutt.ly/maraga
 ## Concept
 Games are made of Scene objects, which contain Sprite objects. The engine needs at least one initial Scene object to be initialized.
 
+## Installing
+### Node.js
+```
+npm install videogame
+```
+### Web
+```
+<script src="https://cdn.jsdelivr.net/npm/videogame@version/videogame.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/videogame@version/plugin.js"></script>
+```
+or
+```
+<script src="https://cdn.jsdelivr.net/gh/diogoeichert/videogame@version/videogame.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/diogoeichert/videogame@version/plugin.js"></script>
+```
+
 ## Usage
 Please refer to the [skel](/skel) for a kick-start. Click [here](https://diogoeichert.github.io/videogame/skel/) to see it running. Then refer to [videogame.js](videogame.js) and [plugin.js](plugin.js) sources to see what the API is capable of.
 

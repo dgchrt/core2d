@@ -22,7 +22,7 @@
 	"bugs": {
 		"url": "https://github.com/diogoeichert/videogame/issues"
 	},
-	"homepage": "https://github.com/diogoeichert/videogame#readme",
+	"homepage": "https://diogoeichert.github.io/videogame/",
 	"devDependencies": {
 		"eslint": "^7.19.0",
 		"eslint-config-classic": "^0.1.0"

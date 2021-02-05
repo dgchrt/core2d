@@ -22,9 +22,10 @@
 	"bugs": {
 		"url": "https://github.com/diogoeichert/videogame/issues"
 	},
+	"funding": "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=diogoeichert%40icloud.com&item_name=videogame&currency_code=EUR",
 	"homepage": "https://diogoeichert.github.io/videogame/",
 	"devDependencies": {
 		"eslint": "^7.19.0",
-		"eslint-config-classic": "^0.1.0"
+		"eslint-config-classic": "^0.1.1"
 	}
 }

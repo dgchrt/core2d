@@ -8,7 +8,7 @@ Multiplatform game engine
 
 *"Simplicity is the ultimate sophistication." - Leonardo da Vinci*
 
-Videogame is the powerhouse used by [Magato Entertainment](http://cutt.ly/maragato) titles, among others.
+Videogame is the powerhouse used by [Maragato Entertainment](http://cutt.ly/maragato) titles, among others.
 
 ## Concept
 Games are made of Scene objects, which contain Sprite objects. The engine needs at least one initial Scene object to be initialized.

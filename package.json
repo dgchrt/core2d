@@ -1,6 +1,6 @@
 {
 	"name": "videogame",
-	"version": "0.1.7",
+	"version": "1.0.0",
 	"description": "Multiplatform game engine",
 	"files": [
 		"plugin.js"

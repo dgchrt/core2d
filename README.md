@@ -11,7 +11,7 @@ Multiplatform game engine
 Videogame is the powerhouse used by [Maragato Entertainment](https://maragato.itch.io) titles, among others.
 
 ## Concept
-Games are made of Scene objects, which contain Sprite objects. The engine needs at least one initial Scene object to be initialized.
+Games are made of scenes, which contain sprites. The engine needs at least one initial scene to be initialized.
 
 ## Installing
 ### Node.js

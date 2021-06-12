@@ -30,7 +30,7 @@
 	},
 	"homepage": "https://diogoeichert.github.io/videogame/",
 	"devDependencies": {
-		"eslint": "^7.19.0",
+		"eslint": "^7.28.0",
 		"eslint-config-classic": "^0.1.1"
 	}
 }

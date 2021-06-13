@@ -44,7 +44,7 @@ or
 ```
 
 ## Usage
-- check the [skel](/skel) for a kick-start : click [here](https://diogoeichert.github.io/videogame/skel/) to see it running
+- check the [skel](/skel) for a kick-start (click [here](https://diogoeichert.github.io/videogame/skel/) to see it running)
 - refer to [videogame.js](videogame.js) and [plugin.js](plugin.js) to see what the API is capable of
 
 ## Support

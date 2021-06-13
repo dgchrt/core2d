@@ -6,7 +6,7 @@
 # videogame
 Multiplatform game engine
 
-*"Simplicity is the ultimate sophistication". - Leonardo da Vinci*
+*"Everything should be made as simple as possible, but not simpler". - Albert Einstein*
 
 Videogame is the powerhouse used by [Maragato Entertainment](https://maragato.itch.io) titles, among others.
 

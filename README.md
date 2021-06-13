@@ -14,7 +14,7 @@ Videogame is the powerhouse used by [Maragato Entertainment](https://maragato.it
 Games are made of scenes, which contain sprites. The engine needs at least one initial scene to be initialized. 
 
 ## Features
-- collision detection : translated to events to keep game logic clean
+- collision detection : translated to events, to keep update logic clean
 - image cache : assets and their transformations are reused automatically
 - user input : human interaction is handled via controllers and pointers, abstracting devices
 - virtual resolution : internal dimensions free the game logic from output displays

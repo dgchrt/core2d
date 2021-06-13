@@ -36,12 +36,6 @@ then
 <script src="https://cdn.jsdelivr.net/npm/videogame@version/plugin.js"></script>
 <script src="game.js"></script>
 ```
-or
-```
-<script src="https://cdn.jsdelivr.net/gh/diogoeichert/videogame@version/videogame.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/diogoeichert/videogame@version/plugin.js"></script>
-<script src="game.js"></script>
-```
 
 ## Usage
 - check the [skel](/skel) for a kick-start (click [here](https://diogoeichert.github.io/videogame/skel/) to see it running)

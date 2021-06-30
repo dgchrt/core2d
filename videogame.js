@@ -1094,6 +1094,7 @@
 				if (--this._volume > 0) {
 					this._theme.volume = this._volume / 100;
 				} else {
+					this.stopTheme();
 					this._isFading = false;
 					this._theme = null;
 

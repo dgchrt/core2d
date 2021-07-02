@@ -1069,6 +1069,8 @@
 		}
 
 		stopTheme() {
+			this._isFading = false;
+
 			if (this._theme) {
 				this._theme.pause();
 				this._theme.currentTime = 0;

@@ -995,6 +995,7 @@
 			this._nextThemeName = null;
 			this._queue = {};
 			this._theme = null;
+			this._themeId = null;
 			this._volume = 100;
 			this.soundEffectsVolume = 0.3;
 		}
@@ -1033,6 +1034,10 @@
 		}
 
 		playTheme(id) {
+			if (id == this._themeId) {
+				return;
+			}
+
 			if (this._theme && this._theme.currentTime > 0) {
 				this._nextThemeName = id;
 
@@ -1045,6 +1050,7 @@
 
 			this.stopTheme();
 			this._theme = getElement(id);
+			this._themeId = id;
 
 			if (this._theme.currentTime > 0) {
 				this._theme.currentTime = 0;
@@ -1102,6 +1108,7 @@
 
 					if (this._nextThemeName) {
 						this.playTheme(this._nextThemeName);
+						this._themeId = this._nextThemeName;
 						this._nextThemeName = null;
 					}
 				}

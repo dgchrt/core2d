@@ -8,7 +8,7 @@ Multiplatform game engine
 
 *"Everything should be made as simple as possible, but not simpler". - Albert Einstein*
 
-Videogame is the powerhouse used by [Maragato Entertainment](https://maragato.itch.io) titles, among others.
+Videogame is the powerhouse used by [Maragato マラガト](https://maragato.itch.io) titles, among others.
 
 ## Concept
 Games are made of scenes, which contain sprites. The engine needs at least one initial scene to be initialized. 

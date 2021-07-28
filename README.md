@@ -32,7 +32,7 @@ then
 ```
 
 ## Usage
-- download [videogame-skel](https://diogoeichert.github.io/videogame-skel) for a kick-start
+- [download videogame-skel](https://github.com/diogoeichert/videogame-skel/archive/refs/heads/main.zip) for a kick-start
 - refer to [videogame.js](videogame.js) and [plugin.js](plugin.js) to see what the API is capable of
 
 ## Support

@@ -30,15 +30,9 @@ then
 <script src="node_modules/videogame/plugin.js"></script>
 <script src="game.js"></script>
 ```
-### Web
-```
-<script src="https://cdn.jsdelivr.net/npm/videogame@version/videogame.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/videogame@version/plugin.js"></script>
-<script src="game.js"></script>
-```
 
 ## Usage
-- check the [skel](/skel) for a kick-start (click [here](https://diogoeichert.github.io/videogame/skel/) to see it running)
+- download [videogame-skel](https://diogoeichert.github.io/videogame-skel) for a kick-start
 - refer to [videogame.js](videogame.js) and [plugin.js](plugin.js) to see what the API is capable of
 
 ## Support

@@ -2033,12 +2033,12 @@
 			if (_transition != null) {
 				if (_transition.sync()) {
 					_transition = null;
+					initScene();
 				}
 			} else {
 				if (_scene.sync()) {
 					_transition = _scene.transition;
 					_scene = _scene.next;
-					initScene();
 				} else {
 					_scene.update();
 				}

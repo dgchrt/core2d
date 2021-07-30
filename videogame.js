@@ -1080,6 +1080,7 @@
 			if (this._theme) {
 				this._theme.pause();
 				this._theme.currentTime = 0;
+				this._themeId = null;
 			}
 		}
 

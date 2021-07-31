@@ -658,11 +658,11 @@ function setup() {
 			if (id == "game") {
 				return {
 					focus: () => {},
-	
+
 					getContext: () => {
 						return {};
 					},
-	
+
 					height: 400,
 					offsetLeft: 0,
 					offsetTop: 0,
@@ -686,5 +686,5 @@ function setup() {
 		innerHeight: 600,
 		innerWidth: 800,
 		requestAnimationFrame: () => true
-	};	
+	};
 }

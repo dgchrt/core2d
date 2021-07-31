@@ -9,12 +9,13 @@ global.videogame = videogame;
 videogame.plugin = require("./plugin.js");
 
 // init
-videogame.Videogame.init(new videogame.Scene(), "test");
+videogame.Videogame.init(new videogame.Scene());
 
 // run videogame tests
 animationTest();
 controllerTest();
 frameTest();
+initTest();
 pointTest();
 pointerTest();
 rectTest();
@@ -171,6 +172,17 @@ function frameTest() {
 	assert.strictEqual(subject.duration, 1);
 	assert.strictEqual(subject.width, IMAGE.width);
 	assert.strictEqual(subject.height, IMAGE.height);
+}
+
+function initTest() {
+	try {
+		videogame.Videogame.init();
+	} catch (e) {
+		assert.strictEqual(e.message, "Could not get the next scene");
+	}
+
+	let scene = new videogame.Scene();
+	videogame.Videogame.init(scene);
 }
 
 function pointTest() {
@@ -344,12 +356,11 @@ function sceneTest() {
 }
 
 function spriteTest() {
-	const SCENE = new videogame.Scene();
 	let subject;
 	let offBoundaryCalled;
 
 	// no args constructor
-	subject = new videogame.Sprite(SCENE);
+	subject = new videogame.Sprite();
 	assert.strictEqual(subject.accelerationX, 0);
 	assert.strictEqual(subject.accelerationY, 0);
 	assert.strictEqual(subject.boundary, null);
@@ -360,7 +371,6 @@ function spriteTest() {
 	assert.strictEqual(subject.layerIndex, 0);
 	assert.strictEqual(subject.maxSpeedX, 0);
 	assert.strictEqual(subject.maxSpeedY, 0);
-	assert.strictEqual(subject.scene, SCENE);
 	assert.strictEqual(subject.solid, false);
 	assert.strictEqual(subject.speedX, 0);
 	assert.strictEqual(subject.speedY, 0);

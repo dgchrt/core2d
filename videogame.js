@@ -1118,7 +1118,7 @@
 	}
 
 	class Sprite extends Rect {
-		constructor(scene) {
+		constructor() {
 			super();
 			this.accelerationX = 0;
 			this.accelerationY = 0;
@@ -1130,7 +1130,6 @@
 			this.layerIndex = 0;
 			this.maxSpeedX = 0;
 			this.maxSpeedY = 0;
-			this.scene = scene;
 			this.solid = false;
 			this.speedX = 0;
 			this.speedY = 0;
@@ -1481,7 +1480,7 @@
 
 	class Scene extends Sprite {
 		constructor() {
-			super(new Point());
+			super();
 			this.height = Engine.height;
 			this.width = Engine.width;
 			this._sprites = [];
@@ -1684,7 +1683,6 @@
 	class Transition extends Sprite {
 		constructor() {
 			super();
-			this.scene = {x: 0, y: 0};
 			this.setColor(Color.Black);
 			this.setHeight(Engine.height);
 			this._increase = Engine.width / 32;
@@ -2006,9 +2004,10 @@
 
 		function initScene() {
 			if (!_scene) {
-				throw "Could not get the next scene.";
+				throw new Error("Could not get the next scene");
 			}
 
+			_scene.scene = new Point();
 			_scene.height = _scene.height || _height;
 			_scene.width = _scene.width || _width;
 			_scene.init();
@@ -2038,7 +2037,17 @@
 			} else {
 				if (_scene.sync()) {
 					_transition = _scene.transition;
+
+					if (_transition) {
+						_transition.scene = _scene;
+						_transition.init();
+					}
+
 					_scene = _scene.next;
+
+					if (!_transition) {
+						initScene();
+					}
 				} else {
 					_scene.update();
 				}

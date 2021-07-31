@@ -1694,7 +1694,6 @@
 			}
 
 			this.width += this._increase;
-			Engine.paint(this);
 			return Sprite.prototype.sync.call(this);
 		}
 	}
@@ -2033,6 +2032,8 @@
 				if (_transition.sync()) {
 					_transition = null;
 					initScene();
+				} else {
+					Engine.paint(_transition);
 				}
 			} else {
 				if (_scene.sync()) {

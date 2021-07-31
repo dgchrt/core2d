@@ -243,9 +243,9 @@
 		}
 
 		onCollision(sprite) {
-			const COLLISION = this.getCollision(sprite);
+			const collision = this.getCollision(sprite);
 
-			if (COLLISION.bottom) {
+			if (collision.bottom) {
 				if (this.speedY > 0) {
 					this.setSpeedY(0);
 					this.setBottom(sprite.top - 1);
@@ -253,21 +253,21 @@
 				}
 
 				this.onBottomCollision(sprite);
-			} else if (COLLISION.top) {
+			} else if (collision.top) {
 				if (this.speedY < 0) {
 					this.setSpeedY(0);
 					this.setTop(sprite.bottom + 1);
 				}
 
 				this.onTopCollision(sprite);
-			} else if (COLLISION.left) {
+			} else if (collision.left) {
 				if (!sprite.hasTag(PUSHABLE_TAG)) {
 					this.canGoLeft = false;
 				}
 
 				this.setLeft(sprite.right + 1);
 				this.onLeftCollision(sprite);
-			} else if (COLLISION.right) {
+			} else if (collision.right) {
 				if (!sprite.hasTag(PUSHABLE_TAG)) {
 					this.canGoRight = false;
 				}
@@ -298,6 +298,7 @@
 				if (!this.collided) {
 					this.canGoLeft = true;
 					this.canGoRight = true;
+					this.canJump = false;
 				}
 			}
 

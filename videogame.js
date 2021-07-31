@@ -1533,29 +1533,29 @@
 		sync() {
 			Engine.paint(this, this.layerIndex);
 			let sprites = [];
-			const SOLID_SPRITES = [];
+			const solidSprites = [];
 
 			for (let i = 0; i < this._sprites.length; ++i) {
-				const SPRITE = this._sprites[i];
-				SPRITE.update();
+				const sprite = this._sprites[i];
+				sprite.update();
 
-				if (SPRITE.sync()) {
-					if (SPRITE.essential) {
+				if (sprite.sync()) {
+					if (sprite.essential) {
 						this.setExpired();
 					}
 				} else {
-					if (SPRITE.solid) {
-						SOLID_SPRITES.push(SPRITE);
+					if (sprite.solid) {
+						solidSprites.push(sprite);
 					}
 
-					sprites.push(SPRITE);
-					Engine.paint(SPRITE, SPRITE.layerIndex);
+					sprites.push(sprite);
+					Engine.paint(sprite, sprite.layerIndex);
 				}
 
-				SPRITE.collided = false;
+				sprite.collided = false;
 			}
 
-			checkCollisions(SOLID_SPRITES);
+			checkCollisions(solidSprites);
 			this._sprites = sprites.concat(this._spritesQueue);
 			this._spritesQueue = [];
 			return Sprite.prototype.sync.call(this);

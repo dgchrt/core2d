@@ -1681,15 +1681,14 @@
 	}
 
 	class Transition extends Sprite {
-		constructor() {
-			super();
+		init() {
 			this.setColor(Color.Black);
-			this.setHeight(Engine.height);
-			this._increase = Engine.width / 32;
+			this.setHeight(this.scene.height);
+			this._increase = this.scene.width / 32;
 		}
 
 		sync() {
-			if (this.width > Engine.width) {
+			if (this.width > this.scene.width) {
 				return true;
 			}
 

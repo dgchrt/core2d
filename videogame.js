@@ -1501,7 +1501,7 @@
 		}
 
 		build(map, tileFactory = null, offsetX = 0, offsetY = 0, x = 0, y = 0) {
-			tileFactory = tileFactory || function (id) {
+			tileFactory = tileFactory ?? function baseTileFactory(id) {
 				return new Sprite().addTag("tile").setImage(id);
 			};
 

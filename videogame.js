@@ -1251,7 +1251,7 @@
 		}
 
 		setAnimation(animation) {
-			if (this._animation == animation) {
+			if (animation == this._animation) {
 				return this;
 			}
 
@@ -2120,11 +2120,15 @@
 	}
 
 	function getGamepads() {
-		return navigator.getGamepads && navigator.getGamepads() || [];
+		if (!navigator.getGamepads) {
+			return [];
+		}
+
+		return navigator.getGamepads();
 	}
 
 	function getImage(image) {
-		if (typeof(image) == "string") {
+		if ("string" == typeof(image)) {
 			return getElement(image);
 		}
 

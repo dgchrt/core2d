@@ -1857,8 +1857,9 @@
 
 			static rotate(image, degrees) {
 				const ORIGINAL = getImage(image);
+				degrees = degrees % 360;
 
-				if (degrees % 360 == 0 ) {
+				if (degrees == 0 ) {
 					return ORIGINAL;
 				}
 

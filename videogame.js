@@ -2055,7 +2055,7 @@
 			}
 
 			_sound.update();
-			window.requestAnimationFrame && window.requestAnimationFrame(render) || render();
+			window.requestAnimationFrame(render);
 		}
 
 		function render() {

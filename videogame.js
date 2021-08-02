@@ -1865,16 +1865,8 @@
 
 				const RADIANS = toRadians(degrees);
 				const IMAGE = document.createElement("canvas");
-				let sideA = ORIGINAL.width;
-				let sideB = ORIGINAL.height;
-
-				if (degrees == 90 || degrees == 270) {
-					sideA = ORIGINAL.height;
-					sideB = ORIGINAL.width;
-				}
-
-				IMAGE.width = sideA;
-				IMAGE.height = sideB;
+				IMAGE.width = ORIGINAL.width;
+				IMAGE.height = ORIGINAL.height;
 				const CONTEXT = IMAGE.getContext("2d");
 				CONTEXT.translate(IMAGE.width / 2, IMAGE.height / 2);
 				CONTEXT.rotate(RADIANS);

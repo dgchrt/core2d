@@ -1812,7 +1812,7 @@
 			}
 
 			static load(namespace) {
-				const container = localStorage[namespace || Engine.getName()];
+				const container = localStorage[namespace ?? Engine.getName()];
 				let result;
 
 				try {
@@ -1894,7 +1894,7 @@
 			}
 
 			static setFrameTime(frameTime) {
-				_frameTime = frameTime || DEFAULT_FRAME_TIME;
+				_frameTime = frameTime ?? DEFAULT_FRAME_TIME;
 			}
 
 			static setKeepAspect(customKeepAspect = true) {

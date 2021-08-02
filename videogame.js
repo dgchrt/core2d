@@ -836,8 +836,8 @@
 
 		updateCoordinates(event) {
 			event.preventDefault();
-			this.x = event.x || event.clientX;
-			this.y = event.y || event.clientY;
+			this.x = event.x ?? event.clientX ?? 0;
+			this.y = event.y ?? event.clientY ?? 0;
 		}
 	}
 

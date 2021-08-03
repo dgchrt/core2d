@@ -445,8 +445,8 @@
 			Engine.playTheme(name);
 		}
 
-		static random(ceil) {
-			return Engine.random(ceil);
+		static random(max) {
+			return Engine.random(max);
 		}
 
 		static rotate(image, degrees) {

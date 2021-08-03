@@ -220,6 +220,20 @@
 		"START",
 	]);
 
+	const CompositeOperations = {
+		COPY: "copy",
+		DESTINATION_ATOP: "destination-atop",
+		DESTINATION_IN: "destination-in",
+		DESTINATION_OUT: "destination-out",
+		DESTINATION_OVER: "destination-over",
+		LIGHTER: "lighter",
+		SOURCE_ATOP: "source-atop",
+		SOURCE_IN: "source-in",
+		SOURCE_OUT: "source-out",
+		SOURCE_OVER: "source-over",
+		XOR: "xor",
+	};
+
 	const FontFamily = {
 		Cursive: "cursive",
 		Fantasy: "fantasy",
@@ -381,6 +395,10 @@
 
 		static clear() {
 			Engine.clear();
+		}
+
+		static colorize(image, fillStyle) {
+			return Engine.colorize(image, fillStyle);
 		}
 
 		static fadeOut() {
@@ -1790,6 +1808,19 @@
 				_context.clearRect(0, 0, _width, _height);
 			}
 
+			static colorize(image, fillStyle, compositeOperation = CompositeOperations.SOURCE_IN) {
+				const input = getImage(image);
+				const output = document.createElement(CANVAS_ELEMENT);
+				output.width = input.width;
+				output.height = input.height;
+				const context = output.getContext(CONTEXT);
+				context.drawImage(input, 0, 0);
+				context.globalCompositeOperation = compositeOperation;
+				context.fillStyle = fillStyle;
+				context.fillRect(0, 0, output.width, output.height);
+				return output;
+			}
+
 			static fadeOut() {
 				_sound.fadeOut();
 			}
@@ -2169,6 +2200,7 @@
 		Animation,
 		Color,
 		Command,
+		CompositeOperations,
 		FontFamily,
 		Frame,
 		Point,

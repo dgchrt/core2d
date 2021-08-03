@@ -856,8 +856,8 @@
 
 		updateCoordinates(event) {
 			event.preventDefault();
-			this.x = event.x || event.clientX;
-			this.y = event.y || event.clientY;
+			this.x = event.x ?? event.clientX ?? 0;
+			this.y = event.y ?? event.clientY ?? 0;
 		}
 	}
 
@@ -1271,7 +1271,7 @@
 		}
 
 		setAnimation(animation) {
-			if (this._animation == animation) {
+			if (animation == this._animation) {
 				return this;
 			}
 
@@ -1521,7 +1521,7 @@
 		}
 
 		build(map, tileFactory = null, offsetX = 0, offsetY = 0, x = 0, y = 0) {
-			tileFactory = tileFactory || function (id) {
+			tileFactory = tileFactory ?? function baseTileFactory(id) {
 				return new Sprite().addTag("tile").setImage(id);
 			};
 
@@ -1701,15 +1701,14 @@
 	}
 
 	class Transition extends Sprite {
-		constructor() {
-			super();
+		init() {
 			this.setColor(Color.Black);
-			this.setHeight(Engine.height);
-			this._increase = Engine.width / 32;
+			this.setHeight(this.scene.height);
+			this._increase = this.scene.width / 32;
 		}
 
 		sync() {
-			if (this.width > Engine.width) {
+			if (this.width > this.scene.width) {
 				return true;
 			}
 
@@ -1846,7 +1845,7 @@
 			}
 
 			static load(namespace) {
-				const container = localStorage[namespace || Engine.getName()];
+				const container = localStorage[namespace ?? Engine.getName()];
 				let result;
 
 				try {
@@ -1890,22 +1889,15 @@
 
 			static rotate(image, degrees) {
 				const input = getImage(image);
+				degrees = degrees % 360;
 
-				if (degrees % 360 == 0 ) {
+				if (degrees == 0 ) {
 					return input;
 				}
 
 				const output = document.createElement(CANVAS_ELEMENT);
-				let sideA = input.width;
-				let sideB = input.height;
-
-				if (degrees == 90 || degrees == 270) {
-					sideA = input.height;
-					sideB = input.width;
-				}
-
-				output.width = sideA;
-				output.height = sideB;
+				output.width = input.width;
+				output.height = input.height;
 				const context = output.getContext(CONTEXT);
 				context.translate(output.width / 2, output.height / 2);
 				context.rotate(toRadians(degrees));
@@ -1926,7 +1918,7 @@
 			}
 
 			static setFrameTime(frameTime) {
-				_frameTime = frameTime || DEFAULT_FRAME_TIME;
+				_frameTime = frameTime ?? DEFAULT_FRAME_TIME;
 			}
 
 			static setKeepAspect(customKeepAspect = true) {
@@ -2086,7 +2078,7 @@
 			}
 
 			_sound.update();
-			window.requestAnimationFrame && window.requestAnimationFrame(render) || render();
+			window.requestAnimationFrame(render);
 		}
 
 		function render() {
@@ -2152,11 +2144,15 @@
 	}
 
 	function getGamepads() {
-		return navigator.getGamepads && navigator.getGamepads() || [];
+		if (!navigator.getGamepads) {
+			return [];
+		}
+
+		return navigator.getGamepads();
 	}
 
 	function getImage(image) {
-		if (typeof(image) == "string") {
+		if ("string" == typeof(image)) {
 			return getElement(image);
 		}
 

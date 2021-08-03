@@ -1,6 +1,8 @@
 (() => {
 	"use strict";
 
+	const CANVAS_ELEMENT = "canvas";
+	const CONTEXT = "2d";
 	const DEFAULT_FRAME_TIME = 16;
 
 	const Axis = makeEnum([
@@ -1700,8 +1702,8 @@
 
 	const Engine = (() => {
 		let _autoScale = true;
-		let _canvas = getElement("game") || getElements("canvas")[0];
-		let _context = _canvas.getContext("2d");
+		let _canvas = getElement("game") || getElements(CANVAS_ELEMENT)[0];
+		let _context = _canvas.getContext(CONTEXT);
 		let _everyOther = true;
 		let _frameTime = DEFAULT_FRAME_TIME;
 		let _height = _canvas.height;
@@ -1851,35 +1853,33 @@
 				_sound.playTheme(name);
 			}
 
-			static random(ceil) {
-				const RANDOM = Math.random() * (ceil + 1);
-				return Math.floor(RANDOM);
+			static random(max) {
+				return Math.floor(Math.random() * (max + 1));
 			}
 
 			static rotate(image, degrees) {
-				const ORIGINAL = getImage(image);
+				const input = getImage(image);
 
 				if (degrees % 360 == 0 ) {
-					return ORIGINAL;
+					return input;
 				}
 
-				const RADIANS = toRadians(degrees);
-				const IMAGE = document.createElement("canvas");
-				let sideA = ORIGINAL.width;
-				let sideB = ORIGINAL.height;
+				const output = document.createElement(CANVAS_ELEMENT);
+				let sideA = input.width;
+				let sideB = input.height;
 
 				if (degrees == 90 || degrees == 270) {
-					sideA = ORIGINAL.height;
-					sideB = ORIGINAL.width;
+					sideA = input.height;
+					sideB = input.width;
 				}
 
-				IMAGE.width = sideA;
-				IMAGE.height = sideB;
-				const CONTEXT = IMAGE.getContext("2d");
-				CONTEXT.translate(IMAGE.width / 2, IMAGE.height / 2);
-				CONTEXT.rotate(RADIANS);
-				CONTEXT.drawImage(ORIGINAL, -ORIGINAL.width / 2, -ORIGINAL.height / 2);
-				return IMAGE;
+				output.width = sideA;
+				output.height = sideB;
+				const context = output.getContext(CONTEXT);
+				context.translate(output.width / 2, output.height / 2);
+				context.rotate(toRadians(degrees));
+				context.drawImage(input, -input.width / 2, -input.height / 2);
+				return output;
 			}
 
 			static save(data, namespace) {
@@ -2013,15 +2013,15 @@
 		}
 
 		function invert(image, isMirror, isFlip) {
-			const ORIGINAL = getImage(image);
-			const IMAGE = document.createElement("canvas");
-			IMAGE.width = ORIGINAL.width;
-			IMAGE.height = ORIGINAL.height;
-			const CONTEXT = IMAGE.getContext("2d");
-			CONTEXT.translate(isMirror ? IMAGE.width : 0, isFlip ? IMAGE.height : 0);
-			CONTEXT.scale(isMirror ? -1 : 1, isFlip ? - 1 : 1);
-			CONTEXT.drawImage(ORIGINAL, 0, 0);
-			return IMAGE;
+			const input = getImage(image);
+			const output = document.createElement(CANVAS_ELEMENT);
+			output.width = input.width;
+			output.height = input.height;
+			const context = output.getContext(CONTEXT);
+			context.translate(isMirror ? output.width : 0, isFlip ? output.height : 0);
+			context.scale(isMirror ? -1 : 1, isFlip ? - 1 : 1);
+			context.drawImage(input, 0, 0);
+			return output;
 		}
 
 		function loop() {

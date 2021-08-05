@@ -1142,6 +1142,7 @@
 			super();
 			this.accelerationX = 0;
 			this.accelerationY = 0;
+			this.alpha = 1;
 			this.boundary = null;
 			this.color = null;
 			this.essential = false;
@@ -1202,6 +1203,11 @@
 
 		setAccelerationY(accelerationY = 0) {
 			this.accelerationY = accelerationY;
+			return this;
+		}
+
+		setAlpha(alpha = 1) {
+			this.alpha = alpha;
 			return this;
 		}
 
@@ -1414,6 +1420,10 @@
 			const X = Math.floor(this.x + this.scene.x);
 			const Y = Math.floor(this.y + this.scene.y);
 
+			if (this.alpha < 1) {
+				context.globalAlpha = this.alpha;
+			}
+
 			if (this.color) {
 				context.fillStyle = this.color;
 				context.fillRect(X, Y, this.width, this.height);
@@ -1421,6 +1431,10 @@
 
 			if (this._animation) {
 				context.drawImage(this._animation.image, X, Y, this.width, this.height);
+			}
+
+			if (this.alpha < 1) {
+				context.globalAlpha = 1;
 			}
 
 			return true;

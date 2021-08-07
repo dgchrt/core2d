@@ -573,22 +573,19 @@ function spriteTest() {
 	// resume / stop
 	subject
 		.setSpeedX(1)
-		.setSpeedY(2)
-		.setZoomSpeed(3);
+		.setSpeedY(2);
 
 	subject.pause();
 	subject.resume();
 
 	assert.strictEqual(subject.speedX, 1);
 	assert.strictEqual(subject.speedY, 2);
-	assert.strictEqual(subject.zoomSpeed, 3);
 
 	subject.stop();
 	subject.resume();
 
 	assert.strictEqual(subject.speedX, 0);
 	assert.strictEqual(subject.speedY, 0);
-	assert.strictEqual(subject.zoomSpeed, 0);
 }
 
 function textSpriteTest() {

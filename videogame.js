@@ -1155,13 +1155,11 @@
 			this.speedX = 0;
 			this.speedY = 0;
 			this.visible = true;
-			this.zoomSpeed = 0;
 			this._animation = null;
 			this._lastSpeedX = 0;
 			this._lastSpeedY = 0;
 			this._lastX = this.x;
 			this._lastY = this.y;
-			this._lastZoomSpeed = 0;
 			this._tags = {};
 			this._tick = 0;
 		}
@@ -1268,11 +1266,6 @@
 
 		setVisible(isVisible = true) {
 			this.visible = isVisible;
-			return this;
-		}
-
-		setZoomSpeed(zoomSpeed = 0) {
-			this.zoomSpeed = zoomSpeed;
 			return this;
 		}
 
@@ -1405,10 +1398,8 @@
 		pause() {
 			this._lastSpeedX = this.speedX;
 			this._lastSpeedY = this.speedY;
-			this._lastZoomSpeed = this.zoomSpeed;
 			this.speedX = 0;
 			this.speedY = 0;
-			this.zoomSpeed = 0;
 			return this;
 		}
 
@@ -1443,17 +1434,14 @@
 		resume() {
 			this.speedX = this._lastSpeedX;
 			this.speedY = this._lastSpeedY;
-			this.zoomSpeed = this._lastZoomSpeed;
 			return this;
 		}
 
 		stop() {
 			this._lastSpeedX = 0;
 			this._lastSpeedY = 0;
-			this._lastZoomSpeed = 0;
 			this.speedX = 0;
 			this.speedY = 0;
-			this.zoomSpeed = 0;
 		}
 
 		sync() {
@@ -1471,10 +1459,6 @@
 
 			this.speedX += this.accelerationX;
 			this.speedY += this.accelerationY;
-
-			if (this.zoomSpeed != 0) {
-				this.zoom(this.zoomSpeed);
-			}
 
 			if (this.maxSpeedX && Math.abs(this.speedX) > this.maxSpeedX) {
 				const SIGNAL = this.speedX / Math.abs(this.speedX);
@@ -1502,12 +1486,13 @@
 			// no default behavior
 		}
 
-		zoom(width) {
-			this.width += width;
-			this.x -= width / 2;
-			const RATIO = this.height / this.width;
-			this.height += width * RATIO;
-			this.y -= width * RATIO / 2;
+		zoom(ratio) {
+			const widthChange = this.width * ratio;
+			this.width += widthChange;
+			this.x -= widthChange / 2;
+			const heightChange = this.height * ratio;
+			this.height += heightChange;
+			this.y -= heightChange / 2;
 			return this;
 		}
 	}

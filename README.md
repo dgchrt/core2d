@@ -11,13 +11,13 @@ Multiplatform game engine
 Videogame is the powerhouse used by [Maragato マラガト](https://maragato.itch.io) titles, among others.
 
 ## Concept
-Games are made of scenes, which contain sprites. The engine needs at least one initial scene to be initialized. 
+Games are made of scenes, which contain sprites. The engine needs at least one scene to be initialized. That's it.
 
 ## Features
-- collision detection: translated to events, to keep update logic clean
+- collision detection: translated to event, to keep update logic clean
 - image cache: assets and their transformations are reused automatically
-- user input: human interaction is handled via controllers and pointers, abstracting devices
-- virtual resolution: internal dimensions free the game geometry from output displays
+- user input: human interaction is abstracted via controllers and pointers
+- virtual resolution: internal geometry free the game logic from displays
 
 ## Installing
 ### Node.js

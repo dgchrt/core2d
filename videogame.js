@@ -1994,14 +1994,12 @@
 		}
 
 		function boot() {
-			const IMAGES = Array.from(getElements("img"));
+			const IMAGES = getElements("img");
 
 			for (let i = 0; i < IMAGES.length; ++i) {
 				const IMAGE = IMAGES[i];
 
-				if (IMAGE.complete) {
-					IMAGES.shift();
-				} else {
+				if (!IMAGE.complete) {
 					setTimeout(boot, 100);
 					return;
 				}
@@ -2139,7 +2137,7 @@
 	}
 
 	function getElements(name) {
-		return document.getElementsByTagName(name);
+		return Array.from(document.getElementsByTagName(name));
 	}
 
 	function getGamepads() {

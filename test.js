@@ -657,7 +657,9 @@ function setup() {
 					focus: () => {},
 
 					getContext: () => {
-						return {};
+						return {
+							fillRect: () => {},
+						};
 					},
 
 					height: 400,

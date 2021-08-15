@@ -1739,7 +1739,7 @@
 		class Engine {
 			static init(scene) {
 				_scene = scene;
-				boot();
+				boot(_canvas, _context);
 			}
 
 			static get bottom() {
@@ -1993,25 +1993,37 @@
 			}
 		}
 
-		function boot() {
-			const IMAGES = getElements("img");
-
-			for (let i = 0; i < IMAGES.length; ++i) {
-				const IMAGE = IMAGES[i];
-
-				if (!IMAGE.complete) {
-					setTimeout(boot, 100);
-					return;
-				}
-			}
-
+		function boot(canvas, context) {
 			addEventListener("blur", focus, false);
 			addEventListener("click", focus, false);
 			addEventListener("focus", focus, false);
 			addEventListener("load", focus, false);
 			addEventListener("resize", scale, false);
-			_autoScale && scale();
 			focus();
+			scale();
+			const images = getElements("img");
+			const total = images.length;
+			let complete = 0;
+
+			for (let i = 0; i < images.length; ++i) {
+				const IMAGE = images[i];
+
+				if (IMAGE.complete) {
+					++complete;
+				}
+			}
+
+			context.fillStyle = Color.Blue;
+			context.fillRect(0, 0, canvas.width * complete / total, canvas.height);
+
+			if (complete < total) {
+				setTimeout(() => {
+					boot(canvas, context);
+				}, 100);
+
+				return;
+			}
+
 			initScene();
 			_lastRender = Date.now();
 			loop();
@@ -2088,6 +2100,10 @@
 		}
 
 		function scale() {
+			if (!_autoScale) {
+				return;
+			}
+
 			let width, height;
 
 			if (_keepAspect) {

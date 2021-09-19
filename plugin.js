@@ -1,9 +1,9 @@
 (() => {
 	"use strict";
 
-	/* global videogame */
+	/* global core */
 
-	const { Color, Command, Videogame, Rect, Sprite } = videogame;
+	const { Color, Command, Core, Rect, Sprite } = core;
 
 	const PUSHABLE_TAG = "pushable";
 	const SPEED_SIZE_RATIO = 0.25;
@@ -40,7 +40,7 @@
 	class ControllableSprite extends Sprite {
 		constructor() {
 			super();
-			this.controller = Videogame.getController();
+			this.controller = Core.getController();
 			this.step = 2;
 		}
 
@@ -74,7 +74,7 @@
 		constructor() {
 			super();
 			this.hovering = null;
-			this.pointer = Videogame.getPointer();
+			this.pointer = Core.getPointer();
 			this.setSolid();
 		}
 
@@ -184,7 +184,7 @@
 					x = 0;
 					y += height + SPACING;
 				} else {
-					const IMAGE = Videogame.image(character + this.font + "Font");
+					const IMAGE = Core.image(character + this.font + "Font");
 
 					if (context) {
 						context.drawImage(IMAGE, this.x + this.scene.x + x, this.y + this.scene.y + y, IMAGE.width, IMAGE.height);
@@ -214,7 +214,7 @@
 			this.canGoLeft = true;
 			this.canGoRight = true;
 			this.canJump = false;
-			this.controller = Videogame.getController();
+			this.controller = Core.getController();
 			this.jumpCommand = Command.A;
 			this.jumpSpeed = -8;
 			this.solid = true;
@@ -361,7 +361,7 @@
 				return true;
 			}
 
-			const number = this.rects.splice(Videogame.random(this.rects.length - 1), 1);
+			const number = this.rects.splice(Core.random(this.rects.length - 1), 1);
 			const column = number % this.columns;
 			const row = Math.floor(number / this.columns);
 			this.x = column * this.width;
@@ -390,7 +390,7 @@
 		}
 
 		update() {
-			this.setVisible(Videogame.random(STAR_BLINK_CHANCE * this.width) > 0);
+			this.setVisible(Core.random(STAR_BLINK_CHANCE * this.width) > 0);
 		}
 	}
 
@@ -402,12 +402,12 @@
 
 		init() {
 			for (let i = 0; i < STAR_DENSITY; ++i) {
-				const SIZE = 1 + Videogame.random(1);
+				const SIZE = 1 + Core.random(1);
 
 				this.scene.add(new Star()
-					.setColor(this.colors[Videogame.random(this.colors.length - 1)])
-					.setX(Videogame.random(this.scene.width))
-					.setY(Videogame.random(this.scene.height))
+					.setColor(this.colors[Core.random(this.colors.length - 1)])
+					.setX(Core.random(this.scene.width))
+					.setY(Core.random(this.scene.height))
 					.setWidth(SIZE)
 					.setHeight(SIZE)
 					.setSpeedX(this.speedX * SIZE * SPEED_SIZE_RATIO)
@@ -436,10 +436,10 @@
 	if ("object" == typeof(module)) {
 		module.exports = exports;
 	} else if ("object" == typeof(window)) {
-		if (!window.videogame) {
-			throw "Videogame must be imported before plugin";
+		if (!window.core) {
+			throw "Core must be imported before plugin";
 		}
 
-		window.videogame.plugin = exports;
+		window.core.plugin = exports;
 	}
 })();

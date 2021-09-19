@@ -380,7 +380,7 @@
 		}
 	}
 
-	class Videogame {
+	class Core {
 		static init(scene) {
 			Engine.init(scene);
 		}
@@ -1718,7 +1718,7 @@
 
 	const Engine = (() => {
 		let _autoScale = true;
-		let _canvas = getElement("game") || getElements(CANVAS_ELEMENT)[0];
+		let _canvas = getElement("app") || getElements(CANVAS_ELEMENT)[0];
 		let _context = _canvas.getContext(CONTEXT);
 		let _everyOther = true;
 		let _frameTime = DEFAULT_FRAME_TIME;
@@ -1727,7 +1727,7 @@
 		let _keepAspect = false;
 		let _input = new Input();
 		let _lastRender;
-		let _name = "Game";
+		let _name = "App";
 		let _realHeight = _canvas.height;
 		let _realWidth = _canvas.width;
 		let _renderableLists = [];
@@ -1850,7 +1850,7 @@
 				try {
 					result = container && JSON.parse(container);
 				} catch (error) {
-					console.log("Could not load saved game: " + error);
+					console.log("Could not load saved data: " + error);
 				}
 
 				return result;
@@ -1908,7 +1908,7 @@
 				try {
 					localStorage[namespace || Engine.getName()] = data && JSON.stringify(data);
 				} catch (error) {
-					console.log("Could not save current game: " + error);
+					console.log("Could not save current data: " + error);
 				}
 			}
 
@@ -2218,12 +2218,12 @@
 		Sprite,
 		TextSprite,
 		Transition,
-		Videogame,
+		Core,
 	};
 
 	if ("object" == typeof(module)) {
 		module.exports = EXPORTS;
 	} else if ("object" == typeof(window)) {
-		window.videogame = EXPORTS;
+		window.core = EXPORTS;
 	}
 })();

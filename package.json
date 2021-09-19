@@ -1,34 +1,36 @@
 {
-	"name": "videogame",
+	"name": "core-multimedia",
 	"version": "1.17.0",
-	"description": "Multiplatform game engine",
+	"description": "Multiplatform multimedia engine",
 	"files": [
 		"plugin.js"
 	],
-	"main": "videogame.js",
+	"main": "core.js",
 	"scripts": {
 		"prepublishOnly": "git checkout main && git pull --rebase && npm test && git push && git push --tags",
 		"test": "eslint --fix . && node test.js"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/diogoeichert/videogame.git"
+		"url": "git+https://github.com/diogoeichert/core.git"
 	},
 	"keywords": [
+		"app",
+		"core",
 		"game",
 		"engine",
-		"multiplatform",
-		"videogame"
+		"multimedia",
+		"multiplatform"
 	],
 	"author": "Diogo Eichert",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/diogoeichert/videogame/issues"
+		"url": "https://github.com/diogoeichert/core/issues"
 	},
 	"funding": {
-		"url": "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=diogoeichert%40icloud.com&item_name=videogame&currency_code=EUR"
+		"url": "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=diogoeichert%40icloud.com&item_name=core&currency_code=EUR"
 	},
-	"homepage": "https://diogoeichert.github.io/videogame/",
+	"homepage": "https://diogoeichert.github.io/core/",
 	"devDependencies": {
 		"eslint": "^7.32.0",
 		"eslint-config-classic": "^1.2.1"

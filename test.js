@@ -4,14 +4,14 @@ setup();
 
 // imports
 const assert = require("assert");
-const videogame = require("./videogame.js");
-global.videogame = videogame;
-videogame.plugin = require("./plugin.js");
+const core = require("./core.js");
+global.core = core;
+core.plugin = require("./plugin.js");
 
 // init
-videogame.Videogame.init(new videogame.Scene());
+core.Core.init(new core.Scene());
 
-// run videogame tests
+// run core tests
 animationTest();
 controllerTest();
 frameTest();
@@ -22,12 +22,12 @@ rectTest();
 sceneTest();
 spriteTest();
 textSpriteTest();
-videogameTest();
+coreTest();
 
 // run plugin tests
 fontSpriteTest();
 
-// videogame tests
+// core tests
 function animationTest() {
 	let subject;
 
@@ -42,12 +42,12 @@ function animationTest() {
 	};
 
 	const FRAMES = [
-		new videogame.Frame(IMAGE1, 1),
-		new videogame.Frame(IMAGE2, 2),
+		new core.Frame(IMAGE1, 1),
+		new core.Frame(IMAGE2, 2),
 	];
 
 	// constructor
-	subject = new videogame.Animation(FRAMES);
+	subject = new core.Animation(FRAMES);
 	assert.strictEqual(subject.image, IMAGE1);
 	assert.strictEqual(subject.width, IMAGE1.width);
 	assert.strictEqual(subject.height, IMAGE1.height);
@@ -77,7 +77,7 @@ function animationTest() {
 	assert.strictEqual(subject.height, IMAGE1.height);
 
 	// factories
-	subject = videogame.Animation.fromImages([IMAGE1, IMAGE2], 2);
+	subject = core.Animation.fromImages([IMAGE1, IMAGE2], 2);
 	assert.strictEqual(subject.image, IMAGE1);
 	assert.strictEqual(subject.width, IMAGE1.width);
 	assert.strictEqual(subject.height, IMAGE1.height);
@@ -123,8 +123,8 @@ function controllerTest() {
 		commands: (() => {
 			let result = {};
 
-			for (let key in videogame.CommandEnum) {
-				result[videogame.CommandEnum[key]] = true;
+			for (let key in core.CommandEnum) {
+				result[core.CommandEnum[key]] = true;
 			}
 
 			return result;
@@ -132,10 +132,10 @@ function controllerTest() {
 	};
 
 	// no args constructor
-	controller = videogame.Videogame.getController();
+	controller = core.Core.getController();
 
-	for (let i in videogame.CommandEnum) {
-		let value = videogame.CommandEnum[i];
+	for (let i in core.CommandEnum) {
+		let value = core.CommandEnum[i];
 		assert.strictEqual(controller.keyDown(value), undefined);
 		assert.strictEqual(controller.keyPush(value), undefined);
 	}
@@ -144,17 +144,17 @@ function controllerTest() {
 	controller.setDevice(deviceMock);
 	assert.strictEqual(controller.update(), undefined);
 
-	for (let j in videogame.CommandEnum) {
-		assert.strictEqual(controller.keyDown(videogame.CommandEnum[j]), true);
-		assert.strictEqual(controller.keyPush(videogame.CommandEnum[j]), true);
+	for (let j in core.CommandEnum) {
+		assert.strictEqual(controller.keyDown(core.CommandEnum[j]), true);
+		assert.strictEqual(controller.keyPush(core.CommandEnum[j]), true);
 	}
 
 	// with all commands, second update
 	assert.strictEqual(controller.update(), undefined);
 
-	for (let k in videogame.CommandEnum) {
-		assert.strictEqual(controller.keyDown(videogame.CommandEnum[k]), true);
-		assert.strictEqual(controller.keyPush(videogame.CommandEnum[k]), false);
+	for (let k in core.CommandEnum) {
+		assert.strictEqual(controller.keyDown(core.CommandEnum[k]), true);
+		assert.strictEqual(controller.keyPush(core.CommandEnum[k]), false);
 	}
 }
 
@@ -167,7 +167,7 @@ function frameTest() {
 	let subject;
 
 	// constructor
-	subject = new videogame.Frame(IMAGE, 1);
+	subject = new core.Frame(IMAGE, 1);
 	assert.strictEqual(subject.image, IMAGE);
 	assert.strictEqual(subject.duration, 1);
 	assert.strictEqual(subject.width, IMAGE.width);
@@ -176,25 +176,25 @@ function frameTest() {
 
 function initTest() {
 	try {
-		videogame.Videogame.init();
+		core.Core.init();
 	} catch (e) {
 		assert.strictEqual(e.message, "Could not get the next scene");
 	}
 
-	let scene = new videogame.Scene();
-	videogame.Videogame.init(scene);
+	let scene = new core.Scene();
+	core.Core.init(scene);
 }
 
 function pointTest() {
 	let subject;
 
 	// no args constructor
-	subject = new videogame.Point();
+	subject = new core.Point();
 	assert.strictEqual(subject.x, 0);
 	assert.strictEqual(subject.y, 0);
 
 	// all args constructor
-	subject = new videogame.Point(1, 2);
+	subject = new core.Point(1, 2);
 	assert.strictEqual(subject.x, 1);
 	assert.strictEqual(subject.y, 2);
 
@@ -216,7 +216,7 @@ function pointerTest() {
 	};
 
 	// without device
-	pointer = videogame.Videogame.getPointer();
+	pointer = core.Core.getPointer();
 	pointer.update();
 	assert.strictEqual(pointer.x, 0);
 	assert.strictEqual(pointer.y, 0);
@@ -234,14 +234,14 @@ function rectTest() {
 	let subject;
 
 	// no args constructor
-	subject = new videogame.Rect();
+	subject = new core.Rect();
 	assert.strictEqual(subject.x, 0);
 	assert.strictEqual(subject.y, 0);
 	assert.strictEqual(subject.width, 0);
 	assert.strictEqual(subject.height, 0);
 
 	// all args constructor
-	subject = new videogame.Rect(1, 2, 3, 4);
+	subject = new core.Rect(1, 2, 3, 4);
 	assert.strictEqual(subject.x, 1);
 	assert.strictEqual(subject.y, 2);
 	assert.strictEqual(subject.width, 3);
@@ -293,28 +293,28 @@ function rectTest() {
 	subject.centerY = 14;
 	assert.strictEqual(subject.centerY, 14);
 
-	assert.strictEqual(subject.setCenter(new videogame.Point().setX(12).setY(13)), subject);
+	assert.strictEqual(subject.setCenter(new core.Point().setX(12).setY(13)), subject);
 	assert.strictEqual(subject.center.x, 12);
 	assert.strictEqual(subject.center.y, 13);
 
-	subject.center = new videogame.Point().setX(11).setY(12);
+	subject.center = new core.Point().setX(11).setY(12);
 	assert.strictEqual(subject.center.x, 11);
 	assert.strictEqual(subject.center.y, 12);
 
 	// metrics
-	subject = new videogame.Rect().setX(0).setY(0).setWidth(1).setHeight(1);
+	subject = new core.Rect().setX(0).setY(0).setWidth(1).setHeight(1);
 	assert.strictEqual(subject.right, 0);
 	assert.strictEqual(subject.bottom, 0);
 
-	subject = new videogame.Rect().setX(0).setY(0).setWidth(2).setHeight(2);
+	subject = new core.Rect().setX(0).setY(0).setWidth(2).setHeight(2);
 	assert.strictEqual(subject.right, 1);
 	assert.strictEqual(subject.bottom, 1);
 
-	subject = new videogame.Rect().setX(0).setY(0).setWidth(3).setHeight(3);
+	subject = new core.Rect().setX(0).setY(0).setWidth(3).setHeight(3);
 	assert.strictEqual(subject.right, 2);
 	assert.strictEqual(subject.bottom, 2);
 
-	subject = new videogame.Rect().setX(0).setY(0).setWidth(4).setHeight(4);
+	subject = new core.Rect().setX(0).setY(0).setWidth(4).setHeight(4);
 	assert.strictEqual(subject.right, 3);
 	assert.strictEqual(subject.bottom, 3);
 
@@ -323,17 +323,17 @@ function rectTest() {
 	assert.strictEqual(subject.x, 0);
 	assert.strictEqual(subject.y, 0);
 
-	subject = new videogame.Rect().setX(0).setY(0).setWidth(5).setHeight(5);
+	subject = new core.Rect().setX(0).setY(0).setWidth(5).setHeight(5);
 	assert.strictEqual(subject.centerX, 2);
 	assert.strictEqual(subject.centerY, 2);
 
-	subject = new videogame.Rect().setX(0).setY(0).setWidth(6).setHeight(6);
+	subject = new core.Rect().setX(0).setY(0).setWidth(6).setHeight(6);
 	assert.strictEqual(subject.centerX, 3);
 	assert.strictEqual(subject.centerY, 3);
 
 	// union
-	const RECT1 = new videogame.Rect().setX(10).setY(20).setWidth(30).setHeight(40);
-	const RECT2 = new videogame.Rect().setX(50).setY(60).setWidth(70).setHeight(80);
+	const RECT1 = new core.Rect().setX(10).setY(20).setWidth(30).setHeight(40);
+	const RECT2 = new core.Rect().setX(50).setY(60).setWidth(70).setHeight(80);
 	subject = RECT1.makeUnion(RECT2);
 	assert.strictEqual(subject.left, RECT1.left);
 	assert.strictEqual(subject.top, RECT1.top);
@@ -342,10 +342,10 @@ function rectTest() {
 }
 
 function sceneTest() {
-	let subject = new videogame.Scene();
+	let subject = new core.Scene();
 
 	// add sprites
-	subject.add(new videogame.Sprite().addTag("test"));
+	subject.add(new core.Sprite().addTag("test"));
 
 	// get objects with tag
 	assert.strictEqual(1, subject.getObjectsWithTag("test").length);
@@ -360,7 +360,7 @@ function spriteTest() {
 	let offBoundaryCalled;
 
 	// no args constructor
-	subject = new videogame.Sprite();
+	subject = new core.Sprite();
 	assert.strictEqual(subject.accelerationX, 0);
 	assert.strictEqual(subject.accelerationY, 0);
 	assert.strictEqual(subject.boundary, null);
@@ -384,7 +384,7 @@ function spriteTest() {
 	assert.strictEqual(subject.tick, 0);
 
 	// setters
-	subject = new videogame.Sprite();
+	subject = new core.Sprite();
 	assert.strictEqual(subject.setAccelerationX(4), subject);
 	assert.strictEqual(subject.accelerationX, 4);
 	assert.strictEqual(subject.setAccelerationY(5), subject);
@@ -393,7 +393,7 @@ function spriteTest() {
 	assert.strictEqual(subject.speedX, 6);
 	assert.strictEqual(subject.setSpeedY(7), subject);
 	assert.strictEqual(subject.speedY, 7);
-	assert.strictEqual(subject.setPosition(new videogame.Point().setX(8).setY(9)), subject);
+	assert.strictEqual(subject.setPosition(new core.Point().setX(8).setY(9)), subject);
 	assert.strictEqual(subject.x, 8);
 	assert.strictEqual(subject.y, 9);
 	assert.strictEqual(subject.setX(10).setY(11), subject);
@@ -402,7 +402,7 @@ function spriteTest() {
 	assert.strictEqual(subject.setX(0).setY(0), subject);
 	assert.strictEqual(subject.x, 0);
 	assert.strictEqual(subject.y, 0);
-	assert.strictEqual(subject.setSize(new videogame.Rect().setX(0).setY(0).setWidth(20).setHeight(21)), subject);
+	assert.strictEqual(subject.setSize(new core.Rect().setX(0).setY(0).setWidth(20).setHeight(21)), subject);
 	assert.strictEqual(subject.width, 20);
 	assert.strictEqual(subject.height, 21);
 	assert.strictEqual(subject.setWidth(19).setHeight(19), subject);
@@ -413,9 +413,9 @@ function spriteTest() {
 	assert.strictEqual(subject.height, 0);
 
 	// collision detection
-	let subject1 = new videogame.Sprite().setWidth(2).setHeight(2);
-	let subject2 = new videogame.Sprite().setX(1).setY(1).setWidth(2).setHeight(2);
-	let subject3 = new videogame.Sprite().setX(2).setY(2).setWidth(2).setHeight(2);
+	let subject1 = new core.Sprite().setWidth(2).setHeight(2);
+	let subject2 = new core.Sprite().setX(1).setY(1).setWidth(2).setHeight(2);
+	let subject3 = new core.Sprite().setX(2).setY(2).setWidth(2).setHeight(2);
 	assert.strictEqual(subject1.hasCollision(subject2), true);
 	assert.strictEqual(subject1.hasCollision(subject3), false);
 	let collision = subject1.getCollision(subject2);
@@ -423,7 +423,7 @@ function spriteTest() {
 	assert.strictEqual(collision.bottom, true);
 
 	// on boundary
-	subject = new videogame.Sprite();
+	subject = new core.Sprite();
 	subject.setWidth(16).setHeight(16);
 	offBoundaryCalled = false;
 
@@ -431,17 +431,17 @@ function spriteTest() {
 		offBoundaryCalled = true;
 	};
 
-	subject.setBoundary(new videogame.Rect().setX(0).setY(0).setWidth(200).setHeight(200));
+	subject.setBoundary(new core.Rect().setX(0).setY(0).setWidth(200).setHeight(200));
 	subject.sync();
 	assert.strictEqual(offBoundaryCalled, false);
 
 	// off boundary
-	subject.setBoundary(new videogame.Rect().setX(20).setHeight(20).setWidth(100).setHeight(100));
+	subject.setBoundary(new core.Rect().setX(20).setHeight(20).setWidth(100).setHeight(100));
 	subject.sync();
 	assert.strictEqual(offBoundaryCalled, true);
 
 	// expiration
-	subject = new videogame.Sprite().setExpiration(5);
+	subject = new core.Sprite().setExpiration(5);
 
 	for (let i = 0; i < 5; ++i) {
 		assert.strictEqual(subject.expired, false);
@@ -461,7 +461,7 @@ function spriteTest() {
 	assert.strictEqual(subject.visible, false);
 
 	// speed to angle
-	subject = new videogame.Sprite();
+	subject = new core.Sprite();
 	subject.setSpeedToAngle(1, 0);
 	assert.strictEqual(Math.round(subject.speedX), 1);
 	assert.strictEqual(Math.round(subject.speedY), 0);
@@ -476,7 +476,7 @@ function spriteTest() {
 	assert.strictEqual(Math.round(subject.speedY), -1);
 
 	// get angle
-	subject = new videogame.Sprite();
+	subject = new core.Sprite();
 	assert.strictEqual(subject.angle, 0);
 	subject.setSpeedX(1);
 	subject.setSpeedY(1);
@@ -492,8 +492,8 @@ function spriteTest() {
 	assert.strictEqual(subject.angle, -45);
 
 	// speed to subject
-	subject1 = new videogame.Sprite();
-	subject2 = new videogame.Sprite().setX(100).setY(50);
+	subject1 = new core.Sprite();
+	subject2 = new core.Sprite().setX(100).setY(50);
 	subject1.setSpeedToPoint(2, subject2);
 	subject2.setSpeedToPoint(2, subject1);
 	assert.strictEqual(subject1.speedX, 100 / 150 * 2);
@@ -502,7 +502,7 @@ function spriteTest() {
 	assert.strictEqual(subject2.speedY, -50 / 150 * 2);
 
 	// max speed
-	subject = new videogame.Sprite();
+	subject = new core.Sprite();
 	subject.setMaxSpeedX(2);
 	subject.setMaxSpeedY(4);
 	subject.setAccelerationX(1);
@@ -530,7 +530,7 @@ function spriteTest() {
 	assert.strictEqual(subject.speedY, -4);
 
 	// direction
-	subject = new videogame.Sprite();
+	subject = new core.Sprite();
 	assert.strictEqual(subject.direction.left, false);
 	assert.strictEqual(subject.direction.right, false);
 	assert.strictEqual(subject.direction.top, false);
@@ -592,18 +592,18 @@ function textSpriteTest() {
 	let text;
 
 	// no args constructor
-	new videogame.TextSprite();
+	new core.TextSprite();
 
 	// all args constructor
-	text = new videogame.TextSprite("whatever");
+	text = new core.TextSprite("whatever");
 
 	// setFontColor
-	text.setFontColor(videogame.Color.Black);
-	assert.strictEqual(text.fontColor, videogame.Color.Black);
+	text.setFontColor(core.Color.Black);
+	assert.strictEqual(text.fontColor, core.Color.Black);
 
 	// setFontFamily
-	text.setFontFamily(videogame.FontFamily.Serif);
-	assert.strictEqual(text.fontFamily, videogame.FontFamily.Serif);
+	text.setFontFamily(core.FontFamily.Serif);
+	assert.strictEqual(text.fontFamily, core.FontFamily.Serif);
 
 	// setText
 	text.setText("test");
@@ -612,21 +612,21 @@ function textSpriteTest() {
 	assert.strictEqual(text.text, "test");
 }
 
-function videogameTest() {
+function coreTest() {
 	// load without saved data
-	assert.strictEqual(videogame.Videogame.load(), undefined);
+	assert.strictEqual(core.Core.load(), undefined);
 
 	// save then load data
-	assert.strictEqual(videogame.Videogame.save({ level: 1 }), undefined);
-	assert.strictEqual(JSON.stringify(videogame.Videogame.load()), JSON.stringify({ level: 1 }));
+	assert.strictEqual(core.Core.save({ level: 1 }), undefined);
+	assert.strictEqual(JSON.stringify(core.Core.load()), JSON.stringify({ level: 1 }));
 
 	// clear saved data
-	assert.strictEqual(videogame.Videogame.save(), undefined);
-	assert.strictEqual(videogame.Videogame.load(), undefined);
+	assert.strictEqual(core.Core.save(), undefined);
+	assert.strictEqual(core.Core.load(), undefined);
 
 	// save then load data with namespace
-	assert.strictEqual(videogame.Videogame.save({ lives: 1 }, "namespace"), undefined);
-	assert.strictEqual(JSON.stringify({ lives: 1 }), JSON.stringify(videogame.Videogame.load("namespace")));
+	assert.strictEqual(core.Core.save({ lives: 1 }, "namespace"), undefined);
+	assert.strictEqual(JSON.stringify({ lives: 1 }), JSON.stringify(core.Core.load("namespace")));
 }
 
 // plugin tests
@@ -634,10 +634,10 @@ function fontSpriteTest() {
 	let text;
 
 	// no args constructor
-	new videogame.plugin.FontSprite();
+	new core.plugin.FontSprite();
 
 	// all args constructor
-	text = new videogame.plugin.FontSprite("whatever");
+	text = new core.plugin.FontSprite("whatever");
 
 	// setText
 	text.setText("test");
@@ -652,7 +652,7 @@ function setup() {
 
 	global.document = {
 		getElementById: (id) => {
-			if (id == "game") {
+			if (id == "app") {
 				return {
 					focus: () => {},
 

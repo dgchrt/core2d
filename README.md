@@ -1,16 +1,16 @@
 [![code style](https://img.shields.io/badge/code_style-classic-blue.svg)](http://diogoeichert.github.io/eslint-config-classic)
-[![downloads](https://img.shields.io/npm/dt/videogame.svg)](https://www.npmjs.com/package/videogame)
-[![license](https://img.shields.io/github/license/diogoeichert/videogame.svg)](LICENSE)
-[![npm version](https://img.shields.io/npm/v/videogame.svg)](https://www.npmjs.com/package/videogame)
+[![downloads](https://img.shields.io/npm/dt/core.svg)](https://www.npmjs.com/package/core)
+[![license](https://img.shields.io/github/license/diogoeichert/core.svg)](LICENSE)
+[![npm version](https://img.shields.io/npm/v/core.svg)](https://www.npmjs.com/package/core)
 
-# videogame
-Multiplatform game engine
+# core
+Multi-platform multimedia engine
 
 *"Everything should be made as simple as possible, but not simpler". - Albert Einstein*
 
-Videogame is the powerhouse used by [Maragato マラガト](https://maragato.itch.io) titles, among others.
+Core is the powerhouse used by [Maragato マラガト](https://maragato.itch.io) titles, among others.
 
-[![Videogame on mobile devices](https://img.youtube.com/vi/J9ioXAm-qpE/0.jpg)](https://www.youtube.com/watch?v=J9ioXAm-qpE)
+[![Core on mobile devices](https://img.youtube.com/vi/J9ioXAm-qpE/0.jpg)](https://www.youtube.com/watch?v=J9ioXAm-qpE)
 
 ## Concept
 Games are made of scenes, which contain sprites. The engine needs at least one scene to be initialized. That's it.
@@ -19,23 +19,23 @@ Games are made of scenes, which contain sprites. The engine needs at least one s
 - collision detection: translated to events, to keep update logic clean
 - image cache: assets and their transformations are reused automatically
 - user input: human interaction is abstracted via controllers and pointers
-- virtual resolution: internal geometry free the game logic from displays
+- virtual resolution: internal geometry free the app logic from displays
 
 ## Installing
 ### Node.js
 ```
-npm install videogame
+npm install core
 ```
 then
 ```
-<script src="node_modules/videogame/videogame.js"></script>
-<script src="node_modules/videogame/plugin.js"></script>
-<script src="game.js"></script>
+<script src="node_modules/core/core.js"></script>
+<script src="node_modules/core/plugin.js"></script>
+<script src="app.js"></script>
 ```
 
 ## Usage
-- [download videogame-skel](https://github.com/diogoeichert/videogame-skel/archive/refs/heads/main.zip) for a kick-start
-- refer to [videogame.js](videogame.js) and [plugin.js](plugin.js) to see what the API is capable of
+- [download core-skel](https://github.com/diogoeichert/core-skel/archive/refs/heads/main.zip) for a kick-start
+- refer to [core.js](core.js) and [plugin.js](plugin.js) to see what the API is capable of
 
 ## Support
-Please consider joining the [discussions](https://github.com/diogoeichert/videogame/discussions) for collaboration and support.
+Please consider joining the [discussions](https://github.com/diogoeichert/core/discussions) for collaboration and support.

@@ -380,7 +380,7 @@
 		}
 	}
 
-	class Videogame {
+	class Core2D {
 		static init(scene) {
 			Engine.init(scene);
 		}
@@ -2218,12 +2218,12 @@
 		Sprite,
 		TextSprite,
 		Transition,
-		Videogame,
+		Core2D,
 	};
 
 	if ("object" == typeof(module)) {
 		module.exports = EXPORTS;
 	} else if ("object" == typeof(window)) {
-		window.videogame = EXPORTS;
+		window.core2d = EXPORTS;
 	}
 })();

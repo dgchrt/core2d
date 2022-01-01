@@ -1,16 +1,16 @@
 [![code style](https://img.shields.io/badge/code_style-classic-blue.svg)](http://diogoeichert.github.io/eslint-config-classic)
-[![downloads](https://img.shields.io/npm/dt/videogame.svg)](https://www.npmjs.com/package/videogame)
-[![license](https://img.shields.io/github/license/diogoeichert/videogame.svg)](LICENSE)
-[![npm version](https://img.shields.io/npm/v/videogame.svg)](https://www.npmjs.com/package/videogame)
+[![downloads](https://img.shields.io/npm/dt/core2d.svg)](https://www.npmjs.com/package/core2d)
+[![license](https://img.shields.io/github/license/diogoeichert/core2d.svg)](LICENSE)
+[![npm version](https://img.shields.io/npm/v/core2d.svg)](https://www.npmjs.com/package/core2d)
 
-# videogame
+# core2d
 Multiplatform game engine
 
 *"Everything should be made as simple as possible, but not simpler". - Albert Einstein*
 
-Videogame is the powerhouse used by [Maragato マラガト](https://maragato.itch.io) titles, among others.
+Core2D is the powerhouse used by [Maragato マラガト](https://maragato.itch.io) titles, among others.
 
-[![Videogame on mobile devices](https://img.youtube.com/vi/J9ioXAm-qpE/0.jpg)](https://www.youtube.com/watch?v=J9ioXAm-qpE)
+[![Core2D on mobile devices](https://img.youtube.com/vi/J9ioXAm-qpE/0.jpg)](https://www.youtube.com/watch?v=J9ioXAm-qpE)
 
 ## Concept
 Games are made of scenes, which contain sprites. The engine needs at least one scene to be initialized. That's it.
@@ -24,18 +24,18 @@ Games are made of scenes, which contain sprites. The engine needs at least one s
 ## Installing
 ### Node.js
 ```
-npm install videogame
+npm install core2d
 ```
 then
 ```
-<script src="node_modules/videogame/videogame.js"></script>
-<script src="node_modules/videogame/plugin.js"></script>
+<script src="node_modules/core2d/core2d.js"></script>
+<script src="node_modules/core2d/plugin.js"></script>
 <script src="game.js"></script>
 ```
 
 ## Usage
-- [download videogame-skel](https://github.com/diogoeichert/videogame-skel/archive/refs/heads/main.zip) for a kick-start
-- refer to [videogame.js](videogame.js) and [plugin.js](plugin.js) to see what the API is capable of
+- [download core2d-skel](https://github.com/diogoeichert/core2d-skel/archive/refs/heads/main.zip) for a kick-start
+- refer to [core2d.js](core2d.js) and [plugin.js](plugin.js) to see what the API is capable of
 
 ## Support
-Please consider joining the [discussions](https://github.com/diogoeichert/videogame/discussions) for collaboration and support.
+Please consider joining the [discussions](https://github.com/diogoeichert/core2d/discussions) for collaboration and support.

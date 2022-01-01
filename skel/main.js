@@ -1,16 +1,16 @@
 (function () {
 	"use strict";
 
-	/* global videogame */
+	/* global core2d */
 
-	const Color = videogame.Color;
-	const Command = videogame.Command;
-	const ControllableSprite = videogame.plugin.ControllableSprite;
-	const Starfield = videogame.plugin.Starfield;
-	const TextSprite = videogame.TextSprite;
-	const Videogame = videogame.Videogame;
+	const Color = core2d.Color;
+	const Command = core2d.Command;
+	const ControllableSprite = core2d.plugin.ControllableSprite;
+	const Starfield = core2d.plugin.Starfield;
+	const TextSprite = core2d.TextSprite;
+	const Core2D = core2d.Core2D;
 
-	let scene = Videogame.scene()
+	let scene = Core2D.scene()
 		.setColor(Color.Navy);
 
 	const starfield = new Starfield()
@@ -41,7 +41,7 @@
 		}
 	};
 
-	const loot = Videogame.sprite()
+	const loot = Core2D.sprite()
 		.setWidth(16)
 		.setHeight(16)
 		.setCenter(scene.center)
@@ -50,8 +50,8 @@
 
 	loot.onCollision = () => {
 		++score.text;
-		loot.centerX = Videogame.random(scene.width);
-		loot.centerY = Videogame.random(scene.height);
+		loot.centerX = Core2D.random(scene.width);
+		loot.centerY = Core2D.random(scene.height);
 	};
 
 	scene.add(starfield);
@@ -59,6 +59,6 @@
 	scene.add(player);
 	scene.add(loot);
 	score.text = 0;
-	Videogame.setName("My Game");
-	Videogame.init(scene);
+	Core2D.setName("My Game");
+	Core2D.init(scene);
 })();

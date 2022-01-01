@@ -4,22 +4,20 @@
 [![npm version](https://img.shields.io/npm/v/core2d.svg)](https://www.npmjs.com/package/core2d)
 
 # core2d
-Multiplatform game engine
+Multiplatform 2D interaction engine
 
 *"Everything should be made as simple as possible, but not simpler". - Albert Einstein*
 
 Core2D is the powerhouse used by [Maragato マラガト](https://maragato.itch.io) titles, among others.
 
-[![Core2D on mobile devices](https://img.youtube.com/vi/J9ioXAm-qpE/0.jpg)](https://www.youtube.com/watch?v=J9ioXAm-qpE)
-
 ## Concept
-Games are made of scenes, which contain sprites. The engine needs at least one scene to be initialized. That's it.
+Apps created with Core2D are made of one or more scenes, which may contain one or more sprites. That's it.
 
 ## Features
 - collision detection: translated to events, to keep update logic clean
 - image cache: assets and their transformations are reused automatically
 - user input: human interaction is abstracted via controllers and pointers
-- virtual resolution: internal geometry free the game logic from displays
+- virtual resolution: internal geometry free the app logic from displays
 
 ## Installing
 ### Node.js
@@ -30,11 +28,11 @@ then
 ```
 <script src="node_modules/core2d/core2d.js"></script>
 <script src="node_modules/core2d/plugin.js"></script>
-<script src="game.js"></script>
+<script src="app.js"></script>
 ```
 
 ## Usage
-- [download core2d-skel](https://github.com/diogoeichert/core2d-skel/archive/refs/heads/main.zip) for a kick-start
+- try the [skel](https://github.com/diogoeichert/core2d-skel/archive/refs/heads/main.zip) app for a kick-start
 - refer to [core2d.js](core2d.js) and [plugin.js](plugin.js) to see what the API is capable of
 
 ## Support

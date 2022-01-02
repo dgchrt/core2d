@@ -32,7 +32,7 @@ then
 ```
 
 ## Usage
-- try the [skel](https://github.com/diogoeichert/core2d-skel/archive/refs/heads/main.zip) app for a kick-start
+- try the [skel](https://diogoeichert.github.io/core2d/skel) app for a kick-start
 - refer to [core2d.js](core2d.js) and [plugin.js](plugin.js) to see what the API is capable of
 
 ## Support

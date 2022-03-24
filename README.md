@@ -17,7 +17,7 @@ Apps created with Core2D are made of one or more scenes, which may contain one o
 - collision detection: translated to events, to keep update logic clean
 - image cache: assets and their transformations are reused automatically
 - user input: human interaction is abstracted via controllers and pointers
-- virtual resolution: internal geometry free the app logic from displays
+- virtual resolution: internal geometry frees the app logic from displays
 
 ## Installing
 ### Node.js

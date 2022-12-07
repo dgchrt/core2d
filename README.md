@@ -1,6 +1,6 @@
 [![code style](https://img.shields.io/badge/code_style-classic-blue.svg)](http://diogoeichert.github.io/eslint-config-classic)
 [![downloads](https://img.shields.io/npm/dt/core2d.svg)](https://www.npmjs.com/package/core2d)
-[![license](https://img.shields.io/github/license/diogoeichert/core2d.svg)](LICENSE)
+[![license](https://img.shields.io/github/license/core2d/core2d.svg)](LICENSE)
 [![npm version](https://img.shields.io/npm/v/core2d.svg)](https://www.npmjs.com/package/core2d)
 
 # core2d
@@ -32,8 +32,8 @@ then
 ```
 
 ## Usage
-- try the [skel](https://diogoeichert.github.io/core2d/skel) app for a kick-start
+- try the [skel](https://core2d.github.io/core2d/skel) app for a kick-start
 - refer to [core2d.js](core2d.js) and [plugin.js](plugin.js) to see what the API is capable of
 
 ## Support
-Please consider joining the [discussions](https://github.com/diogoeichert/core2d/discussions) for collaboration and support.
+Please consider joining the [discussions](https://github.com/core2d/core2d/discussions) for collaboration and support.

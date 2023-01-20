@@ -1,6 +1,6 @@
 {
 	"name": "core2d",
-	"version": "1.23.0",
+	"version": "1.23.1",
 	"description": "Multiplatform game engine",
 	"files": [
 		"plugin.js"

@@ -1,7 +1,7 @@
 {
 	"name": "core2d",
 	"version": "1.23.1",
-	"description": "Multiplatform game engine",
+	"description": "Multiplatform 2D interaction engine",
 	"files": [
 		"plugin.js"
 	],

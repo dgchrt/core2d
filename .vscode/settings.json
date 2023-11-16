@@ -1,8 +1,7 @@
 {
-	"[python]": {
-		"editor.defaultFormatter": "ms-python.autopep8"
+	"[javascript]": {
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
 	},
-	"python.formatting.provider": "none",
 	"editor.indentSize": "tabSize",
 	"editor.detectIndentation": false,
 	"editor.insertSpaces": false

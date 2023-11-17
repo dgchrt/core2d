@@ -1,6 +1,6 @@
 {
 	"name": "core2d",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"description": "Multiplatform 2D interaction engine",
 	"files": [
 		"src"

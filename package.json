@@ -5,7 +5,7 @@
 	"files": [
 		"plugin.js"
 	],
-	"main": "core2d.js",
+	"main": "src/Core2D.mjs",
 	"scripts": {
 		"prepublishOnly": "git checkout main && git pull --rebase && npm test && git push && git push --tags",
 		"test": "eslint --fix . && for test in ./test/*.mjs; do node $test; done"
@@ -15,10 +15,22 @@
 		"url": "git+https://github.com/diogoeichert/core2d.git"
 	},
 	"keywords": [
-		"game",
+		"2d",
+		"core",
+		"core2d",
 		"engine",
-		"multiplatform",
-		"core2d"
+		"game",
+		"game-engine",
+		"gamepad",
+		"interaction",
+		"keyboard",
+		"mouse",
+		"multi-platform",
+		"multimedia",
+		"object-oriented",
+		"sprites",
+		"scenes",
+		"touch"
 	],
 	"author": "Diogo Eichert",
 	"license": "MIT",

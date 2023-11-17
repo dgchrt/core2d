@@ -3,6 +3,8 @@
 [![license](https://img.shields.io/github/license/core2d/core2d.svg)](LICENSE)
 [![npm version](https://img.shields.io/npm/v/core2d.svg)](https://www.npmjs.com/package/core2d)
 
+![core2d logo](core2d.png)
+
 # core2d
 Multiplatform 2D interaction engine
 

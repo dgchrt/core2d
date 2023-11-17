@@ -1,5 +1,6 @@
 "use strict";
 
+import { Animation } from "./Animation.mjs";
 import { Direction } from "./Direction.mjs";
 import { Frame } from "./Frame.mjs";
 import { Rect } from "./Rect.mjs";

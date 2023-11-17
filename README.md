@@ -34,4 +34,9 @@ Clone the [skeleton](https://github.com/diogoeichert/core2d-skel) app for a quic
 ## Support
 Please consider joining the [discussions](https://github.com/core2d/core2d/discussions) for collaboration and support.
 
+## Contributing
+The core of the library (under `src/`) should remain agnostic and lean. Updates to the core library are usually related to technology developments in the platform (web API advances), while staying true to the basic concepts of the library, which are common to all apps.
+
+Opinionated functionality should be implemented in the form of a plugin (under `src/plugin/`). Plugins can add features that are domain driven, such as elements that can be reused by multiple apps, but not necessarily by every app.
+
 *"Everything should be made as simple as possible, but not simpler". - Albert Einstein*

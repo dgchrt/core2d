@@ -31,6 +31,10 @@ npm install core2d
 ## Usage
 Clone the [skeleton](https://github.com/diogoeichert/core2d-skel) app for a quick start.
 
+Learn by example, through open-sourced apps:
+- [Alpha](https://github.com/diogoeichert/alpha) - Single-player platform game
+- [Cityscape](https://github.com/diogoeichert/cityscape) - Single-player arcade survival game
+
 ## Support
 Please consider joining the [discussions](https://github.com/core2d/core2d/discussions) for collaboration and support.
 

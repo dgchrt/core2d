@@ -1,13 +1,11 @@
 "use strict";
 
-/* global core2d */
-
-const Color = core2d.Color;
-const Command = core2d.Command;
-const ControllableSprite = core2d.plugin.ControllableSprite;
-const Starfield = core2d.plugin.Starfield;
-const TextSprite = core2d.TextSprite;
-const Core2D = core2d.Core2D;
+import { Color } from "../src/Color.mjs";
+import { Command } from "../src/Command.mjs";
+import { ControllableSprite } from "../src/plugin/ControllableSprite.mjs";
+import { Core2D } from "../src/Core2D.mjs";
+import { Starfield } from "../src/plugin/Starfield.mjs";
+import { TextSprite } from "../src/TextSprite.mjs";
 
 let scene = Core2D.scene()
 	.setColor(Color.Navy);

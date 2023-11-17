@@ -4,6 +4,7 @@ Multi-platform 2D interaction engine
 [![code style](https://img.shields.io/badge/code_style-classic-blue.svg)](http://diogoeichert.github.io/eslint-config-classic)
 [![discord](https://img.shields.io/discord/1175074188210491433)](https://discord.com/channels/1175074188210491433/1175074189733011478)
 [![downloads](https://img.shields.io/npm/dt/core2d.svg)](https://www.npmjs.com/package/core2d)
+[![discord](https://img.shields.io/discord/1175074188210491433)](https://discord.com/channels/1175074188210491433/1175074189733011478)
 [![license](https://img.shields.io/github/license/core2d/core2d.svg)](LICENSE)
 [![npm version](https://img.shields.io/npm/v/core2d.svg)](https://www.npmjs.com/package/core2d)
 
@@ -37,7 +38,7 @@ Learn by example, through open-sourced apps:
 - [Cityscape](https://github.com/diogoeichert/cityscape) - Single-player arcade survival game
 
 ## Support
-Please consider joining the [discord server](https://discord.com/channels/1175074188210491433/1175074189733011478) for collaboration and support.
+Please consider joining the [Discord server](https://discord.com/channels/1175074188210491433/1175074189733011478) or the [IRC channel](https://web.libera.chat/#core2d) for collaboration and support.
 
 ## Contributing
 The core of the library (under `src/`) should remain agnostic and lean. Updates to the core library are usually related to technology developments in the platform (web API advances), while staying true to the basic concepts of the library, which are common to all apps.

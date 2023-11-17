@@ -1,6 +1,6 @@
 "use strict";
 
-if (global) {
+if (typeof(global) != "undefined") {
 	global.addEventListener = () => {};
 
 	global.document = {

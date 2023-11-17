@@ -16,20 +16,18 @@ Core2D is the powerhouse used by [Maragato マラガト](https://maragato.itch.i
 Apps created with Core2D are made of one or more scenes, which may contain one or more sprites. That's it.
 
 ## Features
-- collision detection: translated to events, to keep update logic clean;
+- collision detection: translated to method calls, to keep update logic clean;
 - image cache: assets and their transformations are reused automatically;
 - user input: human interaction is abstracted via controllers and pointers;
 - virtual resolution: internal geometry frees the app logic from displays.
 
 ## Installing
-### Node.js
 ```
 npm install core2d
 ```
 
 ## Usage
-- try the [skel](https://diogoeichert.github.io/core2d/skel) app for a kick-start;
-- refer to the [source code](src/) to see what the API is capable of.
+Clone the [skeleton](https://github.com/diogoeichert/core2d-skel) app for a quick start.
 
 ## Support
 Please consider joining the [discussions](https://github.com/core2d/core2d/discussions) for collaboration and support.

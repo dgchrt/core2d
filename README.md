@@ -6,7 +6,7 @@
 
 ![core2d logo](core2d.png)
 
-Core2D is the powerhouse used by [Maragato マラガト](https://maragato.itch.io) apps, among others.
+Core2D is the powerhouse used by [Maragato マラガト](https://maragato.itch.io) apps, among others. It is the evolution of Videogame, which in turn was the evolution of Quick. In its current form, it adopts JavaScript modules, leveraging the full power of object-oriented programming.
 
 ## Concept
 Apps created with Core2D are made of one or more [scenes](src/Scene.mjs), which may contain one or more [sprites](src/Sprite.mjs). It's that simple.
@@ -42,3 +42,15 @@ The core of the library (under `src/`) should remain agnostic and lean. Updates 
 Opinionated functionality should be implemented in the form of a plugin (under `src/plugin/`). Plugins can add features that are domain driven, such as elements that can be reused by multiple apps, but not necessarily by every app.
 
 *"Everything should be made as simple as possible, but not simpler". - Albert Einstein*
+
+## Hall of Fame
+Apps created with Core2D:
+- [Asteroids Remake](https://github.com/chamun/asteroids-remake)
+- [Cucurbita's Halloween](https://www.kongregate.com/games/bbastudios/cucurbitas-halloween)
+- [Dragonfire](https://github.com/staudt/dragonfire)
+- [Fighter Champion](https://github.com/csfeijo/fighter-champion)
+- [Missile Commander](https://github.com/staudt/missile-commander)
+- [Quick Camera](https://github.com/staudt/quick-camera)
+- [Raycaster](https://github.com/staudt/raycaster)
+- [Super Breakout Bros.](https://github.com/staudt/SuperBreakoutBros)
+- [Tower Defense](https://github.com/danielcolnaghi/towerdefense)

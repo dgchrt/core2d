@@ -26,12 +26,24 @@ Core2D is the powerhouse used by [Maragato マラガト](https://maragato.itch.i
 Apps created with Core2D are made of one or more [scenes](src/Scene.mjs), which may contain one or more [sprites](src/Sprite.mjs). These objects have properties that can be customized to shape their behavior. It's that simple.
 
 ## Features
+
 ### Collision Detection
 Translated to method calls, to keep update logic clean.
+
 ### Assets Caching
 Assets and their transformations are reused automatically to keep a solid performance.
+
 ### User Input
-Human interaction is abstracted via controllers (gamepads or keyboard) and pointers (mouse or touch screens), so that apps will just work, regardless of the devices in use.
+Human interaction is unified via abstractions, so that apps will just work, regardless of the devices in use.
+
+#### Controllers
+Gamepads or keyboard
+![controllers](controller.png)
+
+#### Pointers
+Mice or touch screen
+![pointer](pointer.png)
+
 ### Virtual Resolution
 Internal geometry frees the app logic from displays, i.e. your app can have an internal logic resolution of 800x600, while running on any display size.
 

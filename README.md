@@ -37,12 +37,14 @@ Assets and their transformations are reused automatically to keep a solid perfor
 Human interaction is unified via abstractions, so that apps will just work, regardless of the devices in use.
 
 #### Controllers
-Gamepads or keyboard
 ![controllers](controller.png)
 
+Gamepads or keyboard.
+
 #### Pointers
-Mice or touch screen
 ![pointer](pointer.png)
+
+Mice or touch screen.
 
 ### Virtual Resolution
 Internal geometry frees the app logic from displays, i.e. your app can have an internal logic resolution of 800x600, while running on any display size.

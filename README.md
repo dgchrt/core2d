@@ -1,5 +1,4 @@
 [![code style](https://img.shields.io/badge/code_style-classic-blue.svg)](http://diogoeichert.github.io/eslint-config-classic)
-[![discord](https://img.shields.io/discord/1175074188210491433)](https://discord.com/channels/1175074188210491433/1175074189733011478)
 [![downloads](https://img.shields.io/npm/dt/core2d.svg)](https://www.npmjs.com/package/core2d)
 [![license](https://img.shields.io/github/license/core2d/core2d.svg)](LICENSE)
 [![npm version](https://img.shields.io/npm/v/core2d.svg)](https://www.npmjs.com/package/core2d)

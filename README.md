@@ -30,7 +30,7 @@ Please consider joining the [Discord server](https://discord.com/channels/117507
 # Features
 
 ## Collision Detection
-Translated to method calls, to keep update logic clean.
+Translated to callbacks, to keep update logic clean.
 
 ## Assets Caching
 Assets and their transformations are reused automatically to keep a solid performance.
@@ -56,8 +56,6 @@ The core of the library (under `src/`) should remain agnostic and lean. Updates 
 
 Opinionated functionality should be implemented in the form of a plugin (under `src/plugin/`). Plugins can add features that are domain driven, such as elements that can be reused by multiple apps, but not necessarily by every app.
 
-*"Everything should be made as simple as possible, but not simpler". - Albert Einstein*
-
 # Hall of Fame
 Apps created with Core2D:
 - [Asteroids Remake](https://chamun.github.io/asteroids-remake/) ([source](https://github.com/chamun/asteroids-remake))
@@ -69,3 +67,5 @@ Apps created with Core2D:
 - [Raycaster](https://staudt.github.io/raycaster/) ([source](https://github.com/staudt/raycaster))
 - [Super Breakout Bros.](https://staudt.github.io/SuperBreakoutBros/) ([source](https://github.com/staudt/SuperBreakoutBros))
 - [Tower Defense](https://danielcolnaghi.github.io/towerdefense) ([source](https://github.com/danielcolnaghi/towerdefense))
+
+*"Everything should be made as simple as possible, but not simpler". - Albert Einstein*

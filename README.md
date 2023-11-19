@@ -42,7 +42,7 @@ Human interaction is unified via abstractions, so that apps will just work, rega
 ### Controllers
 ![controllers](controller.png)
 
-Gamepads or keyboard.
+Gamepads or keyboard. When using a keyboard, sensible defaults (minding accessibility) are used, as seen in [KeyMap.mjs](https://github.com/diogoeichert/core2d/blob/main/src/KeyMap.mjs).
 
 ### Pointers
 ![pointer](pointer.png)

@@ -12,7 +12,7 @@ Core2D is the powerhouse used by [Maragato マラガト](https://maragato.itch.i
 Apps created with Core2D are made of one or more [scenes](src/Scene.mjs), which may contain one or more [sprites](src/Sprite.mjs). These objects have properties that can be customized to shape their behavior. It's that simple.
 
 # Get Started
-- [Download the sample project](https://github.com/diogoeichert/core2d-skel/archive/refs/heads/main.zip) to start building your app, or you can also install it to your existing project:
+[Download](https://github.com/diogoeichert/core2d-skel/archive/refs/heads/main.zip) or clone/fork the [skeleton project](https://github.com/diogoeichert/core2d-skel/) to start building your app. Alternatively, the library can be also installed to your existing/new project:
 ```shell
 npm install core2d
 ```

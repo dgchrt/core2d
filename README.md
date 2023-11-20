@@ -25,7 +25,7 @@ The best way to learn is by doing, and you can see what Core2D is capable of thr
 Also check the [Hall of Fame](#hall-of-fame) below for more source code.
 
 ## Support
-Please consider joining the [Discord server](https://discord.com/channels/1175074188210491433/1175074189733011478) or the [IRC channel](https://web.libera.chat/#core2d) for collaboration and support.
+Please consider joining the [Discussions](https://github.com/diogoeichert/core2d/discussions) for collaboration and support.
 
 # Features
 

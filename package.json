@@ -39,7 +39,7 @@
 		"url": "https://github.com/diogoeichert/core2d/issues"
 	},
 	"funding": {
-		"url": "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=diogoeichert%40icloud.com&item_name=core2d&currency_code=EUR"
+		"url": "https://github.com/sponsors/diogoeichert"
 	},
 	"homepage": "https://diogoeichert.github.io/core2d/",
 	"devDependencies": {

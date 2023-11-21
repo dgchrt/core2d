@@ -362,14 +362,14 @@ export const Engine = (() => {
 		_input.update();
 
 		if (_transition != null) {
-			if (_transition.sync()) {
+			if (_transition._sync()) {
 				_transition = null;
 				initScene();
 			} else {
 				Engine.paint(_transition);
 			}
 		} else {
-			if (_scene.sync()) {
+			if (_scene._sync()) {
 				_transition = _scene.transition;
 
 				if (_transition) {

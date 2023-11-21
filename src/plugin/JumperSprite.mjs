@@ -76,7 +76,7 @@ export class JumperSprite extends Sprite {
 		}
 	}
 
-	sync() {
+	_sync() {
 		if (this.solid) {
 			if (this.canJump && this.controller.keyPush(this.jumpCommand)) {
 				this.jump();
@@ -101,7 +101,7 @@ export class JumperSprite extends Sprite {
 			}
 		}
 
-		return Sprite.prototype.sync.call(this);
+		return Sprite.prototype._sync.call(this);
 	}
 
 	onJump() {

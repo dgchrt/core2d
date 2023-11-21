@@ -26,6 +26,21 @@ export class Scene extends Sprite {
 		return this;
 	}
 
+	/**
+	 * Builds a map in the scene.
+	 *
+	 * This method adds the tiles from the specified map to the scene.
+	 *
+	 * @param {Array<Array<string>>} map - The map to be built.
+	 * @param {function} tileFactory - The tile factory to be used (optional).
+	 * @param {number} offsetX - The horizontal offset to be used instead of the tile's width (optional).
+	 * @param {number} offsetY - The vertical offset to be used instead of the tile's height (optional).
+	 * @param {number} x - The horizontal coordinate to start building the tiles (optional).
+	 * @param {number} y - The vertical coordinate to start building the tiles (optional).
+	 * @returns {Scene} The instance of the scene itself.
+	 * @memberof Scene
+	 * @instance
+	 */
 	build(map, tileFactory = null, offsetX = 0, offsetY = 0, x = 0, y = 0) {
 		tileFactory = tileFactory ?? function baseTileFactory(id) {
 			return new Sprite().addTag("tile").setImage(id);
@@ -56,7 +71,45 @@ export class Scene extends Sprite {
 		return this;
 	}
 
-	sync() {
+	/**
+	 * Returns a collection of sprites with the specified tag.
+	 *
+	 * @param {string} tag - The tag the sprites should contain.
+	 * @returns {Array<Sprite>} A collection of sprites with the specified tag.
+	 */
+	getObjectsWithTag(tag) {
+		const RESULT = [];
+		const SPRITES = this._sprites.concat(this._spritesQueue);
+
+		for (let i = 0; i < SPRITES.length; ++i) {
+			const SPRITE = SPRITES[i];
+
+			if (SPRITE.hasTag(tag)) {
+				RESULT.push(SPRITE);
+			}
+		}
+
+		return RESULT;
+	}
+
+	/**
+	 *
+	 * @param {Transition} transition - The transition to be used.
+	 * @returns {Scene} The instance of the scene itself.
+	 * @memberof Scene
+	 * @instance
+	 */
+	setTransition(transition) {
+		this.transition = transition;
+		return this;
+	}
+
+	// Private methods (not part of the public API)
+	/**
+	 *
+	 * @returns {boolean}
+	 */
+	_sync() {
 		Engine.paint(this, this.layerIndex);
 		let sprites = [];
 		const solidSprites = [];
@@ -65,7 +118,7 @@ export class Scene extends Sprite {
 			const sprite = this._sprites[i];
 			sprite.update();
 
-			if (sprite.sync()) {
+			if (sprite._sync()) {
 				if (sprite.essential) {
 					this.setExpired();
 				}
@@ -84,26 +137,6 @@ export class Scene extends Sprite {
 		Static.checkCollisions(solidSprites);
 		this._sprites = sprites.concat(this._spritesQueue);
 		this._spritesQueue = [];
-		return Sprite.prototype.sync.call(this);
-	}
-
-	getObjectsWithTag(tag) {
-		const RESULT = [];
-		const SPRITES = this._sprites.concat(this._spritesQueue);
-
-		for (let i = 0; i < SPRITES.length; ++i) {
-			const SPRITE = SPRITES[i];
-
-			if (SPRITE.hasTag(tag)) {
-				RESULT.push(SPRITE);
-			}
-		}
-
-		return RESULT;
-	}
-
-	setTransition(transition) {
-		this.transition = transition;
-		return this;
+		return Sprite.prototype._sync.call(this);
 	}
 }

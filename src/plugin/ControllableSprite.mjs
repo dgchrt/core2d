@@ -16,7 +16,7 @@ export 	class ControllableSprite extends Sprite {
 		return this;
 	}
 
-	sync() {
+	_sync() {
 		if (this.controller.keyDown(Command.LEFT) && this.left > 0) {
 			this.x -= this.step;
 		}
@@ -33,6 +33,6 @@ export 	class ControllableSprite extends Sprite {
 			this.y += this.step;
 		}
 
-		return Sprite.prototype.sync.call(this);
+		return Sprite.prototype._sync.call(this);
 	}
 }

@@ -313,7 +313,7 @@ export class Sprite extends Rect {
 		this.speedY = 0;
 	}
 
-	sync() {
+	_sync() {
 		if (this.expired) {
 			return true;
 		}
@@ -322,7 +322,7 @@ export class Sprite extends Rect {
 			this.setExpired();
 		}
 
-		if (this._animation && this._animation.sync()) {
+		if (this._animation && this._animation._sync()) {
 			this.onAnimationLoop();
 		}
 

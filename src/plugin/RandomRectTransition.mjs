@@ -18,7 +18,7 @@ export class RandomRectTransition extends Sprite {
 		}
 	}
 
-	sync() {
+	_sync() {
 		if (!this.rects.length) {
 			return true;
 		}
@@ -28,7 +28,7 @@ export class RandomRectTransition extends Sprite {
 		const row = Math.floor(number / this.columns);
 		this.x = column * this.width;
 		this.y = row * this.height;
-		return Sprite.prototype.sync.call(this);
+		return Sprite.prototype._sync.call(this);
 	}
 }
 

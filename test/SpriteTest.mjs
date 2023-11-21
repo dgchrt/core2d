@@ -82,12 +82,12 @@ subject.offBoundary = () => {
 };
 
 subject.setBoundary(new Rect().setX(0).setY(0).setWidth(200).setHeight(200));
-subject.sync();
+subject._sync();
 assert.strictEqual(offBoundaryCalled, false);
 
 // off boundary
 subject.setBoundary(new Rect().setX(20).setHeight(20).setWidth(100).setHeight(100));
-subject.sync();
+subject._sync();
 assert.strictEqual(offBoundaryCalled, true);
 
 // expiration
@@ -96,11 +96,11 @@ subject = new Sprite().setExpiration(5);
 for (let i = 0; i < 5; ++i) {
 	assert.strictEqual(subject.expired, false);
 	assert.strictEqual(subject.tick, i);
-	assert.strictEqual(subject.sync(), false);
+	assert.strictEqual(subject._sync(), false);
 }
 
 assert.strictEqual(subject.expired, true);
-assert.strictEqual(subject.sync(), true);
+assert.strictEqual(subject._sync(), true);
 
 // visibility
 subject.setVisible();
@@ -157,25 +157,25 @@ subject.setMaxSpeedX(2);
 subject.setMaxSpeedY(4);
 subject.setAccelerationX(1);
 subject.setAccelerationY(2);
-subject.sync();
+subject._sync();
 assert.strictEqual(subject.speedX, 1);
 assert.strictEqual(subject.speedY, 2);
-subject.sync();
+subject._sync();
 assert.strictEqual(subject.speedX, 2);
 assert.strictEqual(subject.speedY, 4);
-subject.sync();
+subject._sync();
 assert.strictEqual(subject.speedX, 2);
 assert.strictEqual(subject.speedY, 4);
 subject.pause();
 subject.setAccelerationX(-1);
 subject.setAccelerationY(-2);
-subject.sync();
+subject._sync();
 assert.strictEqual(subject.speedX, -1);
 assert.strictEqual(subject.speedY, -2);
-subject.sync();
+subject._sync();
 assert.strictEqual(subject.speedX, -2);
 assert.strictEqual(subject.speedY, -4);
-subject.sync();
+subject._sync();
 assert.strictEqual(subject.speedX, -2);
 assert.strictEqual(subject.speedY, -4);
 
@@ -185,36 +185,36 @@ assert.strictEqual(subject.direction.left, false);
 assert.strictEqual(subject.direction.right, false);
 assert.strictEqual(subject.direction.top, false);
 assert.strictEqual(subject.direction.bottom, false);
-subject.sync();
+subject._sync();
 assert.strictEqual(subject.direction.left, false);
 assert.strictEqual(subject.direction.right, false);
 assert.strictEqual(subject.direction.top, false);
 assert.strictEqual(subject.direction.bottom, false);
-subject.sync();
+subject._sync();
 subject.x += 1;
 assert.strictEqual(subject.direction.left, false);
 assert.strictEqual(subject.direction.right, true);
 assert.strictEqual(subject.direction.top, false);
 assert.strictEqual(subject.direction.bottom, false);
-subject.sync();
+subject._sync();
 subject.y += 1;
 assert.strictEqual(subject.direction.left, false);
 assert.strictEqual(subject.direction.right, false);
 assert.strictEqual(subject.direction.top, false);
 assert.strictEqual(subject.direction.bottom, true);
-subject.sync();
+subject._sync();
 subject.x -= 1;
 assert.strictEqual(subject.direction.left, true);
 assert.strictEqual(subject.direction.right, false);
 assert.strictEqual(subject.direction.top, false);
 assert.strictEqual(subject.direction.bottom, false);
-subject.sync();
+subject._sync();
 subject.y -= 1;
 assert.strictEqual(subject.direction.left, false);
 assert.strictEqual(subject.direction.right, false);
 assert.strictEqual(subject.direction.top, true);
 assert.strictEqual(subject.direction.bottom, false);
-subject.sync();
+subject._sync();
 assert.strictEqual(subject.direction.left, false);
 assert.strictEqual(subject.direction.right, false);
 assert.strictEqual(subject.direction.top, false);

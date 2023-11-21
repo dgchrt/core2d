@@ -36,7 +36,7 @@ export class Animation {
 		this.setFrameIndex(index);
 	}
 
-	sync() {
+	_sync() {
 		const DURATION = this._frames[this._index].duration;
 		let hasLooped = false;
 

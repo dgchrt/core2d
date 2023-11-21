@@ -43,7 +43,6 @@
 	},
 	"homepage": "https://diogoeichert.github.io/core2d/",
 	"devDependencies": {
-		"eslint": "^8.10.0",
-		"eslint-config-classic": "^1.4.0"
+		"eslint-config-classic": "^1.8.2"
 	}
 }

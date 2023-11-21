@@ -1,5 +1,8 @@
 "use strict";
 
+/**
+ * Sets up the environment based on its runtime (browser or not).
+ */
 if (typeof(global) != "undefined") {
 	global.addEventListener = () => {};
 
@@ -8,13 +11,11 @@ if (typeof(global) != "undefined") {
 			if (id == "game") {
 				return {
 					focus: () => {},
-
 					getContext: () => {
 						return {
 							fillRect: () => {},
 						};
 					},
-
 					height: 400,
 					offsetLeft: 0,
 					offsetTop: 0,
@@ -31,7 +32,13 @@ if (typeof(global) != "undefined") {
 	};
 
 	global.localStorage = {};
-	global.navigator = {};
+
+	/**
+	 * For older Node.js versions.
+	 */
+	if (!global.navigator) {
+		global.navigator = {};
+	}
 
 	global.window = {
 		focus: () => {},
@@ -41,6 +48,9 @@ if (typeof(global) != "undefined") {
 	};
 }
 
+/**
+ * Anti-Corruption Layer, to be used instead of direct API calls.
+ */
 export const ACL = {
 	document,
 	window,

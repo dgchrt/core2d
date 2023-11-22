@@ -4,19 +4,71 @@ import { Engine } from "./Engine.mjs";
 import { Sprite } from "./Sprite.mjs";
 import { Static } from "./Static.mjs";
 
+/**
+ * Represents a scene containing sprites.
+ * @class
+ * @extends Sprite
+ */
 export class Scene extends Sprite {
+	/**
+	 * Creates an instance of Scene.
+	 */
 	constructor() {
 		super();
+
+		/**
+		 * The height of the scene.
+		 */
 		this.height = Engine.height;
+
+		/**
+		 * The width of the scene.
+		 */
 		this.width = Engine.width;
+
+		// Private members (not part of the public API)
+
+		/***
+		 * The collection of sprites in the scene.
+		 * @internal
+		 * @type {Array<Sprite>}
+		 */
 		this._sprites = [];
+
+		/***
+		 * The queue of sprites to the scene.
+		 * @internal
+		 * @type {Array<Sprite>}
+		 */
 		this._spritesQueue = [];
 	}
 
+	/**
+	 * A callback method that can be implemented by subclasses.
+	 *
+	 * This method is called when the scene becomes active.
+	 * There is no default behavior.
+	 * It can be overridden by subclasses or instances for specific behavior.
+	 *
+	 * @callback Scene~init
+	 */
 	init() {
-		// no default behavior
+		/**
+		 * This method is intentionally left empty in the base class.
+		 * Subclasses or instances should provide their own implementation.
+		 */
 	}
 
+	/**
+	 * Adds a sprite to the scene.
+	 *
+	 * This method adds the specified sprite to the scene.
+	 *
+	 * @param {Sprite} sprite - The sprite to add to the scene.
+	 * @returns {Scene} The instance of the scene itself.
+	 * @memberof Scene
+	 * @instance
+	 */
 	add(sprite) {
 		this._spritesQueue.push(sprite);
 		sprite.scene = this;
@@ -93,6 +145,7 @@ export class Scene extends Sprite {
 	}
 
 	/**
+	 * Sets the transition to be used when the scene expires.
 	 *
 	 * @param {Transition} transition - The transition to be used.
 	 * @returns {Scene} The instance of the scene itself.
@@ -104,10 +157,13 @@ export class Scene extends Sprite {
 		return this;
 	}
 
-	// Private methods (not part of the public API)
-	/**
+	/***
+	 * Called by the {@link Engine} on each loop.
 	 *
-	 * @returns {boolean}
+	 * Returns true if the scene has expired.
+	 *
+	 * @internal
+	 * @returns {boolean} True if the scene has expired.
 	 */
 	_sync() {
 		Engine.paint(this, this.layerIndex);

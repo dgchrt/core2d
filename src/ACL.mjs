@@ -1,8 +1,5 @@
 "use strict";
 
-/**
- * Sets up the environment based on its runtime (browser or not).
- */
 if (typeof(global) != "undefined") {
 	global.addEventListener = () => {};
 
@@ -33,9 +30,6 @@ if (typeof(global) != "undefined") {
 
 	global.localStorage = {};
 
-	/**
-	 * For older Node.js versions.
-	 */
 	if (!global.navigator) {
 		global.navigator = {};
 	}
@@ -48,9 +42,6 @@ if (typeof(global) != "undefined") {
 	};
 }
 
-/**
- * Anti-Corruption Layer, to be used instead of direct API calls.
- */
 export const ACL = {
 	document,
 	window,

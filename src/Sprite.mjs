@@ -6,12 +6,54 @@ import { Frame } from "./Frame.mjs";
 import { Rect } from "./Rect.mjs";
 import { Static } from "./Static.mjs";
 
+/**
+ * Represents a sprite.
+ * @class
+ * @extends Rect
+ */
 export class Sprite extends Rect {
+	/**
+	 * Creates an instance of Sprite.
+	 */
 	constructor() {
 		super();
+
+		/**
+		 * The horizontal acceleration of the sprite.
+		 *
+		 * Increases {@link Sprite.speedX} on each loop.
+		 *
+		 * @type {number}
+		 * @default 0
+		 */
 		this.accelerationX = 0;
+
+		/**
+		 * The vertical acceleration of the sprite.
+		 *
+		 * Increases {@link Sprite.speedY} on each loop.
+		 *
+		 * @type {number}
+		 * @default 0
+		 */
 		this.accelerationY = 0;
+
+		/**
+		 * The alpha (opacity) property of the sprite.
+		 *
+		 * @type {number}
+		 * @default 1
+		 */
 		this.alpha = 1;
+
+		/**
+		 * The boundary of the sprite.
+		 *
+		 * The {@link Sprite#offBoundary} method will be called when the sprite has a boundary and leaves it.
+		 *
+		 * @type {Rect}
+		 * @default null
+		 */
 		this.boundary = null;
 		this.color = null;
 		this.essential = false;
@@ -24,6 +66,9 @@ export class Sprite extends Rect {
 		this.speedX = 0;
 		this.speedY = 0;
 		this.visible = true;
+
+		// Private members (not part of the public API)
+
 		this._animation = null;
 		this._lastSpeedX = 0;
 		this._lastSpeedY = 0;
@@ -251,19 +296,59 @@ export class Sprite extends Rect {
 		// no default behavior
 	}
 
+	/**
+	 * A callback method that can be implemented by subclasses.
+	 *
+	 * This method is called when the sprite has a boundary and leaves it.
+	 * The default behavior is to expire the sprite.
+	 * It can be overridden by subclasses or instances for specific behavior.
+	 *
+	 * @callback
+	 */
 	offBoundary() {
 		this.setExpired();
 	}
 
+	/**
+	 * A callback method that can be implemented by subclasses.
+	 *
+	 * This method is called when the sprite animation loops.
+	 * There is no default behavior.
+	 * It can be overridden by subclasses or instances for specific behavior.
+	 *
+	 * @callback
+	 * @returns {void}
+	 */
 	onAnimationLoop() {
-		// no default behavior
+		/**
+		 * This method is intentionally left empty in the base class.
+		 * Subclasses or instances should provide their own implementation.
+		 */
 	}
 
+	/**
+	 * A callback method that can be implemented by subclasses.
+	 *
+	 * This method is called when the sprite is solid and collides with another solid sprite.
+	 * There is no default behavior.
+	 * It can be overridden by subclasses or instances for specific behavior.
+	 *
+	 * @callback
+	 * @param {Sprite} sprite - The solid sprite that has colided (optional).
+	 * @returns {void}
+	 */
 	onCollision(sprite) {
-		// no default behavior
-		return sprite;
+		/**
+		 * This method is intentionally left empty in the base class.
+		 * Subclasses or instances should provide their own implementation.
+		 */
+		sprite;
 	}
 
+	/**
+	 * Pauses the banana.
+	 * @returns {Sprite}
+	 */
 	pause() {
 		this._lastSpeedX = this.speedX;
 		this._lastSpeedY = this.speedY;
@@ -313,6 +398,12 @@ export class Sprite extends Rect {
 		this.speedY = 0;
 	}
 
+	/***
+	 * Called by the scene that contains the sprite.
+	 *
+	 * @package
+	 * @returns {boolean}
+	 */
 	_sync() {
 		if (this.expired) {
 			return true;

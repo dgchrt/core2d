@@ -62,7 +62,7 @@ Apps created with Core2D:
 - [Cucurbita's Halloween](https://www.kongregate.com/games/bbastudios/cucurbitas-halloween)
 - [Dragonfire](http://staudt.github.io/dragonfire) ([source](https://github.com/staudt/dragonfire))
 - [Fighter Champion](https://rawgit.com/csfeijo/fighter-champion/master/index.html) ([source](https://github.com/csfeijo/fighter-champion))
-- [Missile Commander](http://staudt.github.io/missile-commander/) ([source](https://github.com/staudt/missile-commander))
+- [Missile Commander](https://diogoeichert.github.io/missile-commander/) ([source](https://github.com/diogoeichert/missile-commander))
 - [Quick Camera](https://staudt.github.io/quick-camera/) ([source](https://github.com/staudt/quick-camera))
 - [Raycaster](https://staudt.github.io/raycaster/) ([source](https://github.com/staudt/raycaster))
 - [Super Breakout Bros.](https://staudt.github.io/SuperBreakoutBros/) ([source](https://github.com/staudt/SuperBreakoutBros))

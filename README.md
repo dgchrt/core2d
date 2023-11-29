@@ -63,7 +63,6 @@ Apps created with Core2D:
 - [Dragonfire](http://staudt.github.io/dragonfire) ([source](https://github.com/staudt/dragonfire))
 - [Fighter Champion](https://rawgit.com/csfeijo/fighter-champion/master/index.html) ([source](https://github.com/csfeijo/fighter-champion))
 - [Missile Commander](https://diogoeichert.github.io/missile-commander/) ([source](https://github.com/diogoeichert/missile-commander))
-- [Quick Camera](https://staudt.github.io/quick-camera/) ([source](https://github.com/staudt/quick-camera))
 - [Raycaster](https://staudt.github.io/raycaster/) ([source](https://github.com/staudt/raycaster))
 - [Super Breakout Bros.](https://staudt.github.io/SuperBreakoutBros/) ([source](https://github.com/staudt/SuperBreakoutBros))
 - [Tower Defense](https://danielcolnaghi.github.io/towerdefense) ([source](https://github.com/danielcolnaghi/towerdefense))

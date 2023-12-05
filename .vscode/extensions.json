@@ -1,7 +1,7 @@
 {
-	"recommendations": [
-		"EditorConfig.EditorConfig",
-		"dbaeumer.vscode-eslint",
-		"ms-vscode.live-server",
-	]
+  "recommendations": [
+    "EditorConfig.EditorConfig",
+    "dbaeumer.vscode-eslint",
+    "ms-vscode.live-server",
+  ]
 }

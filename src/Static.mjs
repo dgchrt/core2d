@@ -40,7 +40,13 @@ export class Static {
 
 	static getImage(image) {
 		if ("string" == typeof(image)) {
-			return this.getElement(image);
+			const element = this.getElement(image);
+
+			if (!element) {
+				throw new Error(`Could not find image with id: ${image}`);
+			}
+	
+			return element;
 		}
 
 		return image;

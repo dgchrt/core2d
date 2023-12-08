@@ -45,7 +45,7 @@ export class Static {
 			if (!element) {
 				throw new Error(`Could not find image with id: ${image}`);
 			}
-	
+
 			return element;
 		}
 

@@ -1,11 +1,15 @@
 "use strict";
 
+import { ACL } from "./ACL.mjs";
 import { Color } from "./Color.mjs";
 import { FontFamily } from "./FontFamily.mjs";
 import { Sprite } from "./Sprite.mjs";
 
+const hiddenCanvas = ACL.document.createElement("canvas");
+const hiddenContext = hiddenCanvas.getContext("2d");
+
 export class TextSprite extends Sprite {
-	constructor(text) {
+	constructor(text = "") {
 		super();
 		this.fontColor = Color.White;
 		this.text = text;
@@ -18,6 +22,7 @@ export class TextSprite extends Sprite {
 		if (Sprite.prototype.render.call(this, context)) {
 			context.fillStyle = this.fontColor;
 			context.font = this._font;
+			context.textBaseline = "top";
 			context.fillText(this.text, this.left + this.scene.x, this.bottom + this.scene.y, this.width);
 		}
 	}
@@ -62,5 +67,9 @@ export class TextSprite extends Sprite {
 
 	_updateFont() {
 		this._font = this._fontSize + "px " + this._fontFamily;
+		hiddenContext.textBaseline = "top";
+		hiddenContext.font = this._font;
+		const measurement = hiddenContext.measureText(this.text);
+		this.width = measurement.width;
 	}
 }

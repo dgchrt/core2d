@@ -7,6 +7,21 @@ if (typeof(global) != "undefined") {
 	global.addEventListener = () => {};
 
 	global.document = {
+		createElement: (name) => {
+			if (name == "canvas") {
+				return {
+					getContext: () => {
+						return {
+							measureText: (text) => {
+								return {
+									width: text.length,
+								};
+							},
+						};
+					},
+				};
+			}
+		},
 		getElementById: (id) => {
 			if (id == "game") {
 				return {

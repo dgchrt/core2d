@@ -12,7 +12,7 @@ export class TextSprite extends Sprite {
 	constructor(text = "") {
 		super();
 		this.fontColor = Color.White;
-		this.text = text;
+		this._text = text;
 		this._fontFamily = FontFamily.Monospace;
 		this._fontSize = 16;
 		this._updateFont();
@@ -23,7 +23,7 @@ export class TextSprite extends Sprite {
 			context.fillStyle = this.fontColor;
 			context.font = this._font;
 			context.textBaseline = "top";
-			context.fillText(this.text, this.left + this.scene.x, this.bottom + this.scene.y, this.width);
+			context.fillText(this._text, this.left + this.scene.x, this.bottom + this.scene.y, this.width);
 		}
 	}
 
@@ -45,7 +45,8 @@ export class TextSprite extends Sprite {
 	}
 
 	setText(text) {
-		this.text = text;
+		this._text = text;
+		this._updateFont();
 		return this;
 	}
 
@@ -57,6 +58,10 @@ export class TextSprite extends Sprite {
 		return this._fontSize;
 	}
 
+	get text() {
+		return this._text;
+	}
+
 	set fontFamily(fontFamily) {
 		this.setFontFamily(fontFamily);
 	}
@@ -65,11 +70,15 @@ export class TextSprite extends Sprite {
 		this.setFontSize(fontSize);
 	}
 
+	set text(text) {
+		this.setText(text);
+	}
+
 	_updateFont() {
-		this._font = this._fontSize + "px " + this._fontFamily;
+		this._font = `${this._fontSize}px ${this._fontFamily}`;
 		hiddenContext.textBaseline = "top";
 		hiddenContext.font = this._font;
-		const measurement = hiddenContext.measureText(this.text);
+		const measurement = hiddenContext.measureText(this._text);
 		this.width = measurement.width;
 	}
 }

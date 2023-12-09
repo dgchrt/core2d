@@ -69,6 +69,7 @@ export class TextSprite extends Sprite {
 
 	setFontSize(fontSize) {
 		this._fontSize = fontSize;
+		this.height = fontSize;
 		this._updateFont();
 		return this;
 	}

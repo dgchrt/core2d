@@ -11,10 +11,16 @@ const hiddenContext = hiddenCanvas.getContext("2d");
 export class TextSprite extends Sprite {
 	constructor(text = "") {
 		super();
-		this.fontColor = Color.White;
 		this._text = text;
 		this._fontFamily = FontFamily.Monospace;
 		this._fontSize = 16;
+		this.fontColor = Color.White;
+		this.lineWidth = 0;
+		this.shadowBlur = 0;
+		this.shadowColor = null;
+		this.shadowOffsetX = 0;
+		this.shadowOffsetY = 0;
+		this.strokeStyle = null;
 		this._updateFont();
 	}
 
@@ -23,7 +29,30 @@ export class TextSprite extends Sprite {
 			context.fillStyle = this.fontColor;
 			context.font = this._font;
 			context.textBaseline = "top";
+
+			if (this.shadowColor) {
+				context.shadowColor = this.shadowColor;
+				context.shadowOffsetX = this.shadowOffsetX;
+				context.shadowOffsetY = this.shadowOffsetY;
+				context.shadowBlur = this.shadowBlur;
+			}
+
 			context.fillText(this._text, this.left + this.scene.x, this.bottom + this.scene.y, this.width);
+
+			if (this.shadowColor) {
+				context.shadowColor = null;
+				context.shadowOffsetX = 0;
+				context.shadowOffsetY = 0;
+				context.shadowBlur = 0;
+			}
+
+			if (this.strokeStyle) {
+				context.lineWidth = this.lineWidth;
+				context.strokeStyle = this.strokeStyle;
+				context.strokeText(this._text, this.left + this.scene.x, this.bottom + this.scene.y, this.width);
+				context.lineWidth = 0;
+				context.strokeStyle = null;
+			}
 		}
 	}
 
@@ -41,6 +70,36 @@ export class TextSprite extends Sprite {
 	setFontSize(fontSize) {
 		this._fontSize = fontSize;
 		this._updateFont();
+		return this;
+	}
+
+	setLineWidth(lineWidth) {
+		this.lineWidth = lineWidth;
+		return this;
+	}
+
+	setShadowBlur(shadowBlur) {
+		this.shadowBlur = shadowBlur;
+		return this;
+	}
+
+	setShadowColor(shadowColor) {
+		this.shadowColor = shadowColor;
+		return this;
+	}
+
+	setShadowOffsetX(shadowOffsetX) {
+		this.shadowOffsetX = shadowOffsetX;
+		return this;
+	}
+
+	setShadowOffsetY(shadowOffsetY) {
+		this.shadowOffsetY = shadowOffsetY;
+		return this;
+	}
+
+	setStrokeStyle(strokeStyle) {
+		this.strokeStyle = strokeStyle;
 		return this;
 	}
 

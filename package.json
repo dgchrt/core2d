@@ -1,7 +1,7 @@
 {
 	"name": "core2d",
 	"type": "module",
-	"version": "2.3.1",
+	"version": "2.3.2",
 	"description": "Multiplatform 2D interaction engine",
 	"files": [
 		"src"

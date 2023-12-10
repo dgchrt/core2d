@@ -18,11 +18,7 @@ npm install core2d
 ```
 
 ## Learn
-The best way to learn is by doing, and you can see what Core2D is capable of through existing open-sourced apps:
-- [Alpha](https://github.com/diogoeichert/alpha) - Single-player platform game
-- [Cityscape](https://github.com/diogoeichert/cityscape) - Single-player arcade survival game
-
-Also check the [Hall of Fame](#hall-of-fame) below for more source code.
+The best way to learn is by doing, and you can see what Core2D is capable of through existing open-sourced apps. Check the [Hall of Fame](#hall-of-fame) below for some source code.
 
 ## Support
 Please consider joining the [Discussions](https://github.com/diogoeichert/core2d/discussions) for collaboration and support.
@@ -59,11 +55,14 @@ Opinionated functionality should be implemented in the form of a plugin (under `
 # Hall of Fame
 Apps created with Core2D:
 - [Asteroids Remake](https://chamun.github.io/asteroids-remake/) ([source](https://github.com/chamun/asteroids-remake))
+- [Cityscape](https://puter.com/app/cityscape) - Single-player arcade survival game
 - [Cucurbita's Halloween](https://www.kongregate.com/games/bbastudios/cucurbitas-halloween)
 - [Dragonfire](http://staudt.github.io/dragonfire) ([source](https://github.com/staudt/dragonfire))
 - [Fighter Champion](https://rawgit.com/csfeijo/fighter-champion/master/index.html) ([source](https://github.com/csfeijo/fighter-champion))
 - [Missile Commander](https://diogoeichert.github.io/missile-commander/) ([source](https://github.com/diogoeichert/missile-commander))
+- [Ms. Starship](https://puter.com/app/ms-starship) - Multi-player arcade shoot'em up
 - [Raycaster](https://staudt.github.io/raycaster/) ([source](https://github.com/staudt/raycaster))
+- [Starship](https://puter.com/app/starship) - Single-player arcade shoot'em up
 - [Super Breakout Bros.](https://staudt.github.io/SuperBreakoutBros/) ([source](https://github.com/staudt/SuperBreakoutBros))
 - [Tower Defense](https://danielcolnaghi.github.io/towerdefense) ([source](https://github.com/danielcolnaghi/towerdefense))
 

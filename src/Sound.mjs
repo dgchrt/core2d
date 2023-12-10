@@ -2,6 +2,8 @@
 
 import { Static } from "./Static.mjs";
 
+const DEFAULT_PLAY_VOLUME = 0.3;
+
 export class Sound {
 	constructor() {
 		this._isFading = false;
@@ -11,7 +13,6 @@ export class Sound {
 		this._theme = null;
 		this._themeId = null;
 		this._volume = 100;
-		this.soundEffectsVolume = 0.3;
 	}
 
 	fadeOut() {
@@ -39,12 +40,12 @@ export class Sound {
 		}
 	}
 
-	play(id) {
+	play(id, volume = DEFAULT_PLAY_VOLUME) {
 		if (this._isMute) {
 			return;
 		}
 
-		this._queue[id] = true;
+		this._queue[id] = volume;
 	}
 
 	playTheme(id) {
@@ -107,7 +108,7 @@ export class Sound {
 				SOUND.currentTime = 0;
 			}
 
-			SOUND.volume = this.soundEffectsVolume;
+			SOUND.volume = this._queue[i];
 			SOUND.play();
 		}
 

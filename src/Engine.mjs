@@ -175,8 +175,8 @@ export const Engine = (() => {
 			_renderableLists[index].add(renderable);
 		}
 
-		static play(id) {
-			_sound.play(id);
+		static play(id, volume) {
+			_sound.play(id, volume);
 		}
 
 		static playTheme(name) {

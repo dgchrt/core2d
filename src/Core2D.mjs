@@ -64,8 +64,8 @@ export class Core2D {
 		Engine.paint(renderable, index);
 	}
 
-	static play(id) {
-		Engine.play(id);
+	static play(id, volume) {
+		Engine.play(id, volume);
 	}
 
 	static playTheme(name) {

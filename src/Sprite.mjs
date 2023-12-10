@@ -314,18 +314,24 @@ export class Sprite extends Rect {
 	}
 
 	sync() {
-		if (this.expired) {
-			return true;
-		}
+		this._lastX = this.x;
+		this._lastY = this.y;
+		this.update();
 
 		if (++this._tick == this.expiration) {
 			this.setExpired();
+		}
+
+		if (this.expired) {
+			return true;
 		}
 
 		if (this._animation && this._animation.sync()) {
 			this.onAnimationLoop();
 		}
 
+		this.x += this.speedX;
+		this.y += this.speedY;
 		this.speedX += this.accelerationX;
 		this.speedY += this.accelerationY;
 
@@ -338,11 +344,6 @@ export class Sprite extends Rect {
 			const SIGNAL = this.speedY / Math.abs(this.speedY);
 			this.speedY = this.maxSpeedY * SIGNAL;
 		}
-
-		this._lastX = this.x;
-		this._lastY = this.y;
-		this.x += this.speedX;
-		this.y += this.speedY;
 
 		if (this.boundary && !this.hasCollision(this.boundary)) {
 			this.offBoundary();

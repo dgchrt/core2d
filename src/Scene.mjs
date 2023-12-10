@@ -63,7 +63,6 @@ export class Scene extends Sprite {
 
 		for (let i = 0; i < this._sprites.length; ++i) {
 			const sprite = this._sprites[i];
-			sprite.update();
 
 			if (sprite.sync()) {
 				if (sprite.essential) {

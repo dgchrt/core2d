@@ -93,14 +93,14 @@ assert.strictEqual(offBoundaryCalled, true);
 // expiration
 subject = new Sprite().setExpiration(5);
 
-for (let i = 0; i < 5; ++i) {
+for (let i = 0; i < 4; ++i) {
 	assert.strictEqual(subject.expired, false);
 	assert.strictEqual(subject.tick, i);
 	assert.strictEqual(subject.sync(), false);
 }
 
-assert.strictEqual(subject.expired, true);
 assert.strictEqual(subject.sync(), true);
+assert.strictEqual(subject.expired, true);
 
 // visibility
 subject.setVisible();

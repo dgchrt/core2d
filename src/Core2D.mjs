@@ -92,6 +92,10 @@ export class Core2D {
 		Engine.setFrameTime(frameTime);
 	}
 
+	static setFullScreen(fullScreen) {
+		Engine.setFullScreen(fullScreen);
+	}
+
 	static setKeepAspect(keepAspect) {
 		Engine.setKeepAspect(keepAspect);
 	}

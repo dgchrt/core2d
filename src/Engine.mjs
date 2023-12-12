@@ -23,6 +23,7 @@ export const Engine = (() => {
 	let _context = _canvas.getContext(CONTEXT);
 	let _everyOther = true;
 	let _frameTime = DEFAULT_FRAME_TIME;
+	let _fullScreen = false;
 	let _height = _canvas.height;
 	let _imageCache = {};
 	let _keepAspect = false;
@@ -221,6 +222,10 @@ export const Engine = (() => {
 			_frameTime = frameTime ?? DEFAULT_FRAME_TIME;
 		}
 
+		static setFullScreen(customFullScreen = true) {
+			_fullScreen = customFullScreen;
+		}
+
 		static setKeepAspect(customKeepAspect = true) {
 			_keepAspect = customKeepAspect;
 		}
@@ -332,6 +337,10 @@ export const Engine = (() => {
 
 	function focus() {
 		ACL.window.focus();
+
+		if (_fullScreen && _canvas.requestFullscreen) {
+			_canvas.requestFullscreen();
+		}
 	}
 
 	function initScene() {

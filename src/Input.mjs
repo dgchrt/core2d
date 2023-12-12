@@ -6,6 +6,7 @@ import { Keyboard } from "./Keyboard.mjs";
 import { Mouse } from "./Mouse.mjs";
 import { Pointer } from "./Pointer.mjs";
 import { Static } from "./Static.mjs";
+import { Touch } from "./Touch.mjs";
 
 export class Input {
 	constructor() {

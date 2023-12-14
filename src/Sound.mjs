@@ -100,15 +100,20 @@ export class Sound {
 	}
 
 	update() {
-		for (let i in this._queue) {
-			const SOUND = Static.getElement(i);
+		for (let id in this._queue) {
+			const SOUND = Static.getElement(id);
+
+			if (!SOUND?.pause) {
+				console.warn(`Could not find audio with id: ${id}`);
+			}
+
 			SOUND.pause();
 
 			if (SOUND.currentTime > 0) {
 				SOUND.currentTime = 0;
 			}
 
-			SOUND.volume = this._queue[i];
+			SOUND.volume = this._queue[id];
 			SOUND.play();
 		}
 

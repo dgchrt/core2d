@@ -23,7 +23,13 @@ export class Static {
 	}
 
 	static getElement(id) {
-		return ACL.document.getElementById(id);
+		const element = ACL.document.getElementById(id);
+
+		if (!element) {
+			console.warn(`Could not find element with id: ${id}`);
+		}
+
+		return element;
 	}
 
 	static getElements(name) {
@@ -40,13 +46,7 @@ export class Static {
 
 	static getImage(image) {
 		if ("string" == typeof(image)) {
-			const element = this.getElement(image);
-
-			if (!element) {
-				throw new Error(`Could not find image with id: ${image}`);
-			}
-
-			return element;
+			return this.getElement(image);
 		}
 
 		return image;

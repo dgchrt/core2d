@@ -19,7 +19,7 @@ const DEFAULT_FRAME_TIME = 16;
 
 export const Engine = (() => {
 	let _autoScale = true;
-	let _canvas = Static.getElement("game") || Static.getElements(CANVAS_ELEMENT)[0];
+	let _canvas = Static.getElement("app") || Static.getElements(CANVAS_ELEMENT)[0];
 	let _context = _canvas.getContext(CONTEXT);
 	let _everyOther = true;
 	let _frameTime = DEFAULT_FRAME_TIME;
@@ -300,12 +300,13 @@ export const Engine = (() => {
 	}
 
 	function boot(canvas, context) {
+		_canvas.style.transform = "translateZ(0)";
 		addEventListener("blur", focus, false);
 		addEventListener("click", focus, false);
 		addEventListener("focus", focus, false);
 		addEventListener("load", focus, false);
 		addEventListener("resize", scale, false);
-		focus();
+		// focus(); // TODO: test all platforms before finally removing it
 		scale();
 		const images = Static.getElements("img");
 		const total = images.length;
@@ -339,7 +340,9 @@ export const Engine = (() => {
 		ACL.window.focus();
 
 		if (_fullScreen && _canvas.requestFullscreen) {
-			_canvas.requestFullscreen();
+			_canvas.requestFullscreen().catch((error) => {
+				console.warn("Could not request full screen", error);
+			});
 		}
 	}
 

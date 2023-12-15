@@ -68,5 +68,3 @@ Apps created with Core2D:
 - [Starship](https://maragato.itch.io/starship) - Single-player arcade shoot'em up
 - [Super Breakout Bros.](https://staudt.github.io/SuperBreakoutBros/) ([source](https://github.com/staudt/SuperBreakoutBros))
 - [Tower Defense](https://danielcolnaghi.github.io/towerdefense) ([source](https://github.com/danielcolnaghi/towerdefense))
-
-*"Everything should be made as simple as possible, but not simpler". - Albert Einstein*

@@ -23,7 +23,7 @@ if (typeof(global) != "undefined") {
 			}
 		},
 		getElementById: (id) => {
-			if (id == "game") {
+			if (id == "app") {
 				return {
 					focus: () => {},
 					getContext: () => {

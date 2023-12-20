@@ -21,6 +21,7 @@ export const Engine = (() => {
 	let _autoScale = true;
 	let _canvas = Static.getElement("app") || Static.getElements(CANVAS_ELEMENT)[0];
 	let _context = _canvas.getContext(CONTEXT);
+	let _degraded = false;
 	let _everyOther = true;
 	let _frameTime = DEFAULT_FRAME_TIME;
 	let _fullScreen = false;
@@ -400,7 +401,12 @@ export const Engine = (() => {
 		}
 
 		_sound.update();
-		ACL.window.requestAnimationFrame(render);
+
+		if (_degraded) {
+			render();
+		} else {
+			ACL.window.requestAnimationFrame(render);
+		}
 	}
 
 	function render() {
@@ -408,7 +414,14 @@ export const Engine = (() => {
 			_renderableLists[i].render(_context);
 		}
 
-		setTimeout(loop, _frameTime + _lastRender - Date.now());
+		const timeout = _frameTime + _lastRender - Date.now();
+		// console.log(timeout); // for debugging
+
+		if (timeout < 0) {
+			_degraded = true;
+		}
+
+		setTimeout(loop, timeout);
 		_lastRender = Date.now();
 	}
 

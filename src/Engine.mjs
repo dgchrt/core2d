@@ -16,12 +16,28 @@ import { Static } from "./Static.mjs";
 const CANVAS_ELEMENT = "canvas";
 const CONTEXT = "2d";
 const DEFAULT_FRAME_TIME = 16;
+const DEGRADATION_TOLERANCE = 10;
 
 export const Engine = (() => {
+	const RENDER_STRATEGY = {
+		DEFAULT: () => {
+			ACL.window.requestAnimationFrame(render);
+		},
+
+		DEGRADED: () => {
+			render();
+		},
+	};
+
+	const RENDER_STRATEGIES = [
+		RENDER_STRATEGY.DEFAULT,
+		RENDER_STRATEGY.DEGRADED,
+	];
+
 	let _autoScale = true;
 	let _canvas = Static.getElement("app") || Static.getElements(CANVAS_ELEMENT)[0];
 	let _context = _canvas.getContext(CONTEXT);
-	let _degraded = false;
+	let _degraded = 0;
 	let _everyOther = true;
 	let _frameTime = DEFAULT_FRAME_TIME;
 	let _fullScreen = false;
@@ -34,6 +50,7 @@ export const Engine = (() => {
 	let _realHeight = _canvas.height;
 	let _realWidth = _canvas.width;
 	let _renderableLists = [];
+	let _renderStrategy = 0;
 	let _scene;
 	let _sound = new Sound();
 	let _transition;
@@ -401,12 +418,7 @@ export const Engine = (() => {
 		}
 
 		_sound.update();
-
-		if (_degraded) {
-			render();
-		} else {
-			ACL.window.requestAnimationFrame(render);
-		}
+		RENDER_STRATEGIES[_renderStrategy]();
 	}
 
 	function render() {
@@ -415,10 +427,11 @@ export const Engine = (() => {
 		}
 
 		const timeout = _frameTime + _lastRender - Date.now();
-		// console.log(timeout); // for debugging
 
-		if (timeout < 0) {
-			_degraded = true;
+		if (timeout < 0 && ++_degraded > DEGRADATION_TOLERANCE) {
+			if (++_renderStrategy > RENDER_STRATEGIES.length - 1) {
+				_renderStrategy = 0;
+			}
 		}
 
 		setTimeout(loop, timeout);

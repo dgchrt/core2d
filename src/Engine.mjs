@@ -412,8 +412,6 @@ export const Engine = (() => {
 				if (!_transition) {
 					initScene();
 				}
-			} else {
-				_scene.update();
 			}
 		}
 

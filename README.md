@@ -48,9 +48,6 @@ The core of the library (under `src/`) should remain agnostic and lean. Updates 
 Opinionated functionality should be implemented in the form of a plugin (under `src/plugin/`). Plugins can add features that are domain driven, such as elements that can be reused by multiple apps, but not necessarily by every app.
 
 # Hall of Fame
-Recent entries:
-- [Mythology](https://maragato.itch.io/mythology) - Single-player arcade pinball game
-
 Apps created with Core2D:
 - [Asteroids Remake](https://chamun.github.io/asteroids-remake/) ([source](https://github.com/chamun/asteroids-remake))
 - [Cityscape](https://puter.com/app/cityscape) - Single-player arcade survival game

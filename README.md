@@ -1,8 +1,3 @@
-[![code style](https://img.shields.io/badge/code_style-classic-blue.svg)](http://diogoeichert.github.io/eslint-config-classic)
-[![downloads](https://img.shields.io/npm/dt/core2d.svg)](https://www.npmjs.com/package/core2d)
-[![license](https://img.shields.io/github/license/core2d/core2d.svg)](LICENSE)
-[![npm version](https://img.shields.io/npm/v/core2d.svg)](https://www.npmjs.com/package/core2d)
-
 ![core2d logo](./core2d.jpg)
 
 # About
@@ -12,7 +7,7 @@ Core2D is the powerhouse used by [Maragato マラガト](https://maragato.itch.i
 Apps created with Core2D are made of one or more [scenes](src/Scene.mjs), which may contain one or more [sprites](src/Sprite.mjs). These objects have properties that can be customized to shape their behavior. It's that simple.
 
 # Get Started
-[Download](https://github.com/diogoeichert/core2d-skel/archive/refs/heads/main.zip) or clone/fork the [skeleton project](https://github.com/diogoeichert/core2d-skel/) to start building your app. Alternatively, the library can be also installed to your existing/new project:
+[Download](https://github.com/dgchrt/core2d-skel/archive/refs/heads/main.zip) or clone/fork the [skeleton project](https://github.com/dgchrt/core2d-skel/) to start building your app. Alternatively, the library can be also installed to your existing/new project:
 ```shell
 npm install core2d
 ```
@@ -21,7 +16,7 @@ npm install core2d
 The best way to learn is by doing, and you can see what Core2D is capable of through existing open-sourced apps. Check the [Hall of Fame](#hall-of-fame) below for some source code.
 
 ## Support
-Please consider joining the [Discussions](https://github.com/diogoeichert/core2d/discussions) for collaboration and support.
+Please consider joining the [Discussions](https://github.com/dgchrt/core2d/discussions) for collaboration and support.
 
 # Features
 
@@ -37,7 +32,7 @@ Human interaction is unified via abstractions, so that apps will just work, rega
 ### Controllers
 ![controllers](controller.png)
 
-Gamepads or keyboard. When using a keyboard, sensible defaults (minding accessibility) are used, as seen in [KeyMap.mjs](https://github.com/diogoeichert/core2d/blob/main/src/KeyMap.mjs).
+Gamepads or keyboard. When using a keyboard, sensible defaults (minding accessibility) are used, as seen in [KeyMap.mjs](https://github.com/dgchrt/core2d/blob/main/src/KeyMap.mjs).
 
 ### Pointers
 ![pointer](pointer.png)
@@ -58,13 +53,14 @@ Recent entries:
 
 Apps created with Core2D:
 - [Asteroids Remake](https://chamun.github.io/asteroids-remake/) ([source](https://github.com/chamun/asteroids-remake))
-- [Cityscape](https://maragato.itch.io/cityscape) - Single-player arcade survival game
+- [Cityscape](https://puter.com/app/cityscape) - Single-player arcade survival game
 - [Cucurbita's Halloween](https://www.kongregate.com/games/bbastudios/cucurbitas-halloween)
 - [Dragonfire](http://staudt.github.io/dragonfire) ([source](https://github.com/staudt/dragonfire))
 - [Fighter Champion](https://rawgit.com/csfeijo/fighter-champion/master/index.html) ([source](https://github.com/csfeijo/fighter-champion))
-- [Missile Commander](https://diogoeichert.github.io/missile-commander/) ([source](https://github.com/diogoeichert/missile-commander))
-- [Ms. Starship](https://maragato.itch.io/ms-starship) - Multi-player arcade shoot'em up
+- [Missile Commander](https://dgchrt.github.io/missile-commander/) ([source](https://github.com/dgchrt/missile-commander))
+- [Ms. Starship](https://puter.com/app/ms-starship) - Multi-player arcade shoot'em up
+- [Mythology](https://puter.com/app/mythology) - Single-player arcade pinball
 - [Raycaster](https://staudt.github.io/raycaster/) ([source](https://github.com/staudt/raycaster))
-- [Starship](https://maragato.itch.io/starship) - Single-player arcade shoot'em up
+- [Starship](https://puter.com/app/starship) - Single-player arcade shoot'em up
 - [Super Breakout Bros.](https://staudt.github.io/SuperBreakoutBros/) ([source](https://github.com/staudt/SuperBreakoutBros))
 - [Tower Defense](https://danielcolnaghi.github.io/towerdefense) ([source](https://github.com/danielcolnaghi/towerdefense))

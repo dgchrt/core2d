@@ -56,7 +56,6 @@ Apps created with Core2D:
 - [Cityscape](https://puter.com/app/cityscape) - Single-player arcade survival game
 - [Cucurbita's Halloween](https://www.kongregate.com/games/bbastudios/cucurbitas-halloween)
 - [Dragonfire](http://staudt.github.io/dragonfire) ([source](https://github.com/staudt/dragonfire))
-- [Fighter Champion](https://rawgit.com/csfeijo/fighter-champion/master/index.html) ([source](https://github.com/csfeijo/fighter-champion))
 - [Missile Commander](https://dgchrt.github.io/missile-commander/) ([source](https://github.com/dgchrt/missile-commander))
 - [Ms. Starship](https://puter.com/app/ms-starship) - Multi-player arcade shoot'em up
 - [Mythology](https://puter.com/app/mythology) - Single-player arcade pinball

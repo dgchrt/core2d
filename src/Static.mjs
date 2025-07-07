@@ -45,7 +45,7 @@ export class Static {
 	}
 
 	static getImage(image) {
-		if ("string" == typeof(image)) {
+		if ("string" == typeof image) {
 			return this.getElement(image);
 		}
 
@@ -68,10 +68,10 @@ export class Static {
 	}
 
 	static toDegrees(radians) {
-		return radians * 180 / Math.PI;
+		return (radians * 180) / Math.PI;
 	}
 
 	static toRadians(degrees) {
-		return degrees * Math.PI / 180;
+		return (degrees * Math.PI) / 180;
 	}
 }

@@ -29,13 +29,11 @@ export const Engine = (() => {
 		},
 	};
 
-	const RENDER_STRATEGIES = [
-		RENDER_STRATEGY.DEFAULT,
-		RENDER_STRATEGY.DEGRADED,
-	];
+	const RENDER_STRATEGIES = [RENDER_STRATEGY.DEFAULT, RENDER_STRATEGY.DEGRADED];
 
 	let _autoScale = true;
-	let _canvas = Static.getElement("app") || Static.getElements(CANVAS_ELEMENT)[0];
+	let _canvas =
+		Static.getElement("app") || Static.getElements(CANVAS_ELEMENT)[0];
 	let _context = _canvas.getContext(CONTEXT);
 	let _degraded = 0;
 	let _everyOther = true;
@@ -126,7 +124,11 @@ export const Engine = (() => {
 			_context.clearRect(0, 0, _width, _height);
 		}
 
-		static colorize(image, fillStyle, compositeOperation = CompositeOperations.SOURCE_IN) {
+		static colorize(
+			image,
+			fillStyle,
+			compositeOperation = CompositeOperations.SOURCE_IN
+		) {
 			const input = Static.getImage(image);
 			const output = ACL.document.createElement(CANVAS_ELEMENT);
 			output.width = input.width;
@@ -210,7 +212,7 @@ export const Engine = (() => {
 			const input = Static.getImage(image);
 			degrees = degrees % 360;
 
-			if (degrees == 0 ) {
+			if (degrees == 0) {
 				return input;
 			}
 
@@ -226,7 +228,8 @@ export const Engine = (() => {
 
 		static save(data, namespace) {
 			try {
-				localStorage[namespace || Engine.getName()] = data && JSON.stringify(data);
+				localStorage[namespace || Engine.getName()] =
+					data && JSON.stringify(data);
 			} catch (error) {
 				console.log("Could not save current game: " + error);
 			}
@@ -339,7 +342,7 @@ export const Engine = (() => {
 		}
 
 		context.fillStyle = Color.Blue;
-		context.fillRect(0, 0, canvas.width * complete / total, canvas.height);
+		context.fillRect(0, 0, (canvas.width * complete) / total, canvas.height);
 
 		if (complete < total) {
 			setTimeout(() => {
@@ -382,7 +385,7 @@ export const Engine = (() => {
 		output.height = input.height;
 		const context = output.getContext(CONTEXT);
 		context.translate(isMirror ? output.width : 0, isFlip ? output.height : 0);
-		context.scale(isMirror ? -1 : 1, isFlip ? - 1 : 1);
+		context.scale(isMirror ? -1 : 1, isFlip ? -1 : 1);
 		context.drawImage(input, 0, 0);
 		return output;
 	}

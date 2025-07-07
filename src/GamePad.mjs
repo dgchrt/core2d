@@ -25,15 +25,19 @@ export class GamePad {
 		const BUTTONS = Input.getGamePadButtons(this._id);
 		const RESULT = {};
 
-		if (Input.getGamePadAxes(this._id)[Axis.LEFT_Y] < - this.analogThreshold) {
+		if (Input.getGamePadAxes(this._id)[Axis.LEFT_Y] < -this.analogThreshold) {
 			RESULT[Command.UP] = true;
-		} else if (Input.getGamePadAxes(this._id)[Axis.LEFT_Y] > this.analogThreshold) {
+		} else if (
+			Input.getGamePadAxes(this._id)[Axis.LEFT_Y] > this.analogThreshold
+		) {
 			RESULT[Command.DOWN] = true;
 		}
 
-		if (Input.getGamePadAxes(this._id)[Axis.LEFT_X] < - this.analogThreshold) {
+		if (Input.getGamePadAxes(this._id)[Axis.LEFT_X] < -this.analogThreshold) {
 			RESULT[Command.LEFT] = true;
-		} else if (Input.getGamePadAxes(this._id)[Axis.LEFT_X] > this.analogThreshold) {
+		} else if (
+			Input.getGamePadAxes(this._id)[Axis.LEFT_X] > this.analogThreshold
+		) {
 			RESULT[Command.RIGHT] = true;
 		}
 

@@ -2,7 +2,7 @@
 
 import { Sprite } from "../Sprite.mjs";
 
-export 	class ClickableSprite extends Sprite {
+export class ClickableSprite extends Sprite {
 	constructor() {
 		super();
 		this.addTag("clickable");
@@ -21,4 +21,3 @@ export 	class ClickableSprite extends Sprite {
 		// no default behavior
 	}
 }
-

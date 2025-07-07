@@ -52,7 +52,10 @@ assert.strictEqual(subject.y, 11);
 assert.strictEqual(subject.setX(0).setY(0), subject);
 assert.strictEqual(subject.x, 0);
 assert.strictEqual(subject.y, 0);
-assert.strictEqual(subject.setSize(new Rect().setX(0).setY(0).setWidth(20).setHeight(21)), subject);
+assert.strictEqual(
+	subject.setSize(new Rect().setX(0).setY(0).setWidth(20).setHeight(21)),
+	subject
+);
 assert.strictEqual(subject.width, 20);
 assert.strictEqual(subject.height, 21);
 assert.strictEqual(subject.setWidth(19).setHeight(19), subject);
@@ -86,7 +89,9 @@ subject.sync();
 assert.strictEqual(offBoundaryCalled, false);
 
 // off boundary
-subject.setBoundary(new Rect().setX(20).setHeight(20).setWidth(100).setHeight(100));
+subject.setBoundary(
+	new Rect().setX(20).setHeight(20).setWidth(100).setHeight(100)
+);
 subject.sync();
 assert.strictEqual(offBoundaryCalled, true);
 
@@ -146,10 +151,10 @@ subject1 = new Sprite();
 subject2 = new Sprite().setX(100).setY(50);
 subject1.setSpeedToPoint(2, subject2);
 subject2.setSpeedToPoint(2, subject1);
-assert.strictEqual(subject1.speedX, 100 / 150 * 2);
-assert.strictEqual(subject1.speedY, 50 / 150 * 2);
-assert.strictEqual(subject2.speedX, -100 / 150 * 2);
-assert.strictEqual(subject2.speedY, -50 / 150 * 2);
+assert.strictEqual(subject1.speedX, (100 / 150) * 2);
+assert.strictEqual(subject1.speedY, (50 / 150) * 2);
+assert.strictEqual(subject2.speedX, (-100 / 150) * 2);
+assert.strictEqual(subject2.speedY, (-50 / 150) * 2);
 
 // max speed
 subject = new Sprite();
@@ -221,9 +226,7 @@ assert.strictEqual(subject.direction.top, false);
 assert.strictEqual(subject.direction.bottom, false);
 
 // resume / stop
-subject
-	.setSpeedX(1)
-	.setSpeedY(2);
+subject.setSpeedX(1).setSpeedY(2);
 
 subject.pause();
 subject.resume();

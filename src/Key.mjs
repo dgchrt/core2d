@@ -18,5 +18,5 @@ export const Key = {
 	J: 74,
 	K: 75,
 	L: 76,
-	S: 83
+	S: 83,
 };

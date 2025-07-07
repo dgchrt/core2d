@@ -9,22 +9,34 @@ export class Touch extends Point {
 		this._isDown = true;
 		this.updateCoordinates(event);
 
-		addEventListener("touchend", (event) => {
-			event.preventDefault();
-			this._isDown = false;
-			this.updateCoordinates(event);
-		}, false);
+		addEventListener(
+			"touchend",
+			(event) => {
+				event.preventDefault();
+				this._isDown = false;
+				this.updateCoordinates(event);
+			},
+			false
+		);
 
-		addEventListener("touchmove", (event) => {
-			event.preventDefault();
-			this.updateCoordinates(event);
-		}, false);
+		addEventListener(
+			"touchmove",
+			(event) => {
+				event.preventDefault();
+				this.updateCoordinates(event);
+			},
+			false
+		);
 
-		addEventListener("touchstart", () => {
-			event.preventDefault();
-			this._isDown = true;
-			this.updateCoordinates(event);
-		}, false);
+		addEventListener(
+			"touchstart",
+			() => {
+				event.preventDefault();
+				this._isDown = true;
+				this.updateCoordinates(event);
+			},
+			false
+		);
 	}
 
 	get command() {

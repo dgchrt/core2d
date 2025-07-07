@@ -4,7 +4,7 @@ import { Core2D } from "../Core2D.mjs";
 import { Rect } from "../Rect.mjs";
 import { Sprite } from "../Sprite.mjs";
 
-export 	class CursorSprite extends Sprite {
+export class CursorSprite extends Sprite {
 	constructor() {
 		super();
 		this.hovering = null;

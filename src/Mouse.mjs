@@ -7,19 +7,31 @@ export class Mouse extends Point {
 		super();
 		this.updateCoordinates(event);
 
-		addEventListener("mousedown", (event) => {
-			event.preventDefault();
-			this._isDown = true;
-		}, false);
+		addEventListener(
+			"mousedown",
+			(event) => {
+				event.preventDefault();
+				this._isDown = true;
+			},
+			false
+		);
 
-		addEventListener("mousemove", (event) => {
-			this.updateCoordinates(event);
-		}, false);
+		addEventListener(
+			"mousemove",
+			(event) => {
+				this.updateCoordinates(event);
+			},
+			false
+		);
 
-		addEventListener("mouseup", (event) => {
-			event.preventDefault();
-			this._isDown = false;
-		}, false);
+		addEventListener(
+			"mouseup",
+			(event) => {
+				event.preventDefault();
+				this._isDown = false;
+			},
+			false
+		);
 	}
 
 	get command() {

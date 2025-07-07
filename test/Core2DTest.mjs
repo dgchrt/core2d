@@ -28,4 +28,7 @@ assert.strictEqual(Core2D.load(), undefined);
 
 // save then load data with namespace
 assert.strictEqual(Core2D.save({ lives: 1 }, "namespace"), undefined);
-assert.strictEqual(JSON.stringify({ lives: 1 }), JSON.stringify(Core2D.load("namespace")));
+assert.strictEqual(
+	JSON.stringify({ lives: 1 }),
+	JSON.stringify(Core2D.load("namespace"))
+);

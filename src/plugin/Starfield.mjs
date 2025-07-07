@@ -42,14 +42,16 @@ export class Starfield extends Sprite {
 		for (let i = 0; i < STAR_DENSITY; ++i) {
 			const SIZE = 1 + Core2D.random(1);
 
-			this.scene.add(new Star()
-				.setColor(this.colors[Core2D.random(this.colors.length - 1)])
-				.setX(Core2D.random(this.scene.width))
-				.setY(Core2D.random(this.scene.height))
-				.setWidth(SIZE)
-				.setHeight(SIZE)
-				.setSpeedX(this.speedX * SIZE * SPEED_SIZE_RATIO)
-				.setSpeedY(this.speedY * SIZE * SPEED_SIZE_RATIO));
+			this.scene.add(
+				new Star()
+					.setColor(this.colors[Core2D.random(this.colors.length - 1)])
+					.setX(Core2D.random(this.scene.width))
+					.setY(Core2D.random(this.scene.height))
+					.setWidth(SIZE)
+					.setHeight(SIZE)
+					.setSpeedX(this.speedX * SIZE * SPEED_SIZE_RATIO)
+					.setSpeedY(this.speedY * SIZE * SPEED_SIZE_RATIO)
+			);
 		}
 	}
 

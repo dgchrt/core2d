@@ -15,4 +15,14 @@ assert.strictEqual(1, subject.getObjectsWithTag("test").length);
 assert.strictEqual(0, subject.getObjectsWithTag("blah").length);
 
 // build empty tiles
-subject.build([["a", "b", "c"], ["d", "e", "f"]], () => null, 0, 0, 0, 0);
+subject.build(
+	[
+		["a", "b", "c"],
+		["d", "e", "f"],
+	],
+	() => null,
+	0,
+	0,
+	0,
+	0
+);

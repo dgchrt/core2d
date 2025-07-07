@@ -39,5 +39,5 @@ export const ButtonLayout = {
 		"DOWN",
 		"LEFT",
 		"RIGHT",
-	])
+	]),
 };

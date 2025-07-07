@@ -51,7 +51,7 @@ export class Input {
 
 	static getGamePadButtons(id) {
 		const GAMEPAD = Static.getGamepads()[id];
-		return GAMEPAD && GAMEPAD.buttons || [];
+		return (GAMEPAD && GAMEPAD.buttons) || [];
 	}
 
 	addController(device) {
@@ -72,7 +72,10 @@ export class Input {
 	}
 
 	checkControllerQueues() {
-		if (this._controllerRequestQueue.length > 0 && this._controllerQueue.length > 0) {
+		if (
+			this._controllerRequestQueue.length > 0 &&
+			this._controllerQueue.length > 0
+		) {
 			const REQUESTER = this._controllerRequestQueue.shift();
 			const DEVICE = this._controllerQueue.shift();
 			REQUESTER.setDevice(DEVICE);

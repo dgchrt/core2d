@@ -52,7 +52,13 @@ export class FontSprite extends Sprite {
 				const IMAGE = Core2D.image(character + this.font + "Font");
 
 				if (context) {
-					context.drawImage(IMAGE, this.x + this.scene.x + x, this.y + this.scene.y + y, IMAGE.width, IMAGE.height);
+					context.drawImage(
+						IMAGE,
+						this.x + this.scene.x + x,
+						this.y + this.scene.y + y,
+						IMAGE.width,
+						IMAGE.height
+					);
 				}
 
 				x += IMAGE.width + SPACING;
@@ -71,4 +77,3 @@ export class FontSprite extends Sprite {
 		this.setHeight(y + height);
 	}
 }
-

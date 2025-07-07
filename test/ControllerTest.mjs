@@ -23,7 +23,7 @@ const deviceMock = {
 		}
 
 		return result;
-	})()
+	})(),
 };
 
 // no args constructor

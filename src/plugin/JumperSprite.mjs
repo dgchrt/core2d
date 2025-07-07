@@ -140,4 +140,3 @@ export class JumperSprite extends Sprite {
 		return sprite;
 	}
 }
-

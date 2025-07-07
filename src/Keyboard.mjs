@@ -7,8 +7,8 @@ export class Keyboard {
 		this._buffer = {};
 
 		this.onKey(event, true);
-		addEventListener("keydown", event => this.onKey(event, true), false);
-		addEventListener("keyup", event => this.onKey(event, false), false);
+		addEventListener("keydown", (event) => this.onKey(event, true), false);
+		addEventListener("keyup", (event) => this.onKey(event, false), false);
 	}
 
 	get commands() {
@@ -27,7 +27,7 @@ export class Keyboard {
 		const COMMAND = KeyMap[event.keyCode];
 		this._buffer[COMMAND] = isDown;
 
-		if (isDown && "number" == typeof(COMMAND)) {
+		if (isDown && "number" == typeof COMMAND) {
 			event.preventDefault();
 		}
 	}

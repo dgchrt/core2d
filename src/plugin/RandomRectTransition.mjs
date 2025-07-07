@@ -31,4 +31,3 @@ export class RandomRectTransition extends Sprite {
 		return Sprite.prototype.sync.call(this);
 	}
 }
-

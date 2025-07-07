@@ -3,7 +3,7 @@
 /**
  * Sets up the environment based on its runtime (browser or not).
  */
-if (typeof(global) != "undefined") {
+if (typeof global != "undefined") {
 	global.addEventListener = () => {};
 
 	global.document = {
@@ -43,7 +43,7 @@ if (typeof(global) != "undefined") {
 		},
 		getElementsByTagName: () => {
 			return [];
-		}
+		},
 	};
 
 	global.localStorage = {};
@@ -59,7 +59,7 @@ if (typeof(global) != "undefined") {
 		focus: () => {},
 		innerHeight: 600,
 		innerWidth: 800,
-		requestAnimationFrame: () => true
+		requestAnimationFrame: () => true,
 	};
 }
 

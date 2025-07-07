@@ -4,7 +4,7 @@ import { Command } from "../Command.mjs";
 import { Core2D } from "../Core2D.mjs";
 import { Sprite } from "../Sprite.mjs";
 
-export 	class ControllableSprite extends Sprite {
+export class ControllableSprite extends Sprite {
 	constructor() {
 		super();
 		this.controller = Core2D.getController();
@@ -21,7 +21,10 @@ export 	class ControllableSprite extends Sprite {
 			this.x -= this.step;
 		}
 
-		if (this.controller.keyDown(Command.RIGHT) && this.right < this.scene.width) {
+		if (
+			this.controller.keyDown(Command.RIGHT) &&
+			this.right < this.scene.width
+		) {
 			this.x += this.step;
 		}
 
@@ -29,7 +32,10 @@ export 	class ControllableSprite extends Sprite {
 			this.y -= this.step;
 		}
 
-		if (this.controller.keyDown(Command.DOWN) && this.bottom < this.scene.height) {
+		if (
+			this.controller.keyDown(Command.DOWN) &&
+			this.bottom < this.scene.height
+		) {
 			this.y += this.step;
 		}
 

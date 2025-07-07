@@ -118,7 +118,6 @@ To contribute to Core2D, you'll need to set up your development environment.
 5.  **Git Hooks:**
     This project uses [husky](https://typicode.github.io/husky/) to manage Git hooks. A `pre-commit` hook is configured to run `npm test` before each commit. This ensures that all tests pass and the code is linted before it's committed. After running `npm install`, the hooks will be automatically configured.
 
-
 # Hall of Fame
 
 Apps created with Core2D:

@@ -53,8 +53,8 @@ assert.strictEqual(subject.setX(0).setY(0), subject);
 assert.strictEqual(subject.x, 0);
 assert.strictEqual(subject.y, 0);
 assert.strictEqual(
-	subject.setSize(new Rect().setX(0).setY(0).setWidth(20).setHeight(21)),
-	subject
+  subject.setSize(new Rect().setX(0).setY(0).setWidth(20).setHeight(21)),
+  subject
 );
 assert.strictEqual(subject.width, 20);
 assert.strictEqual(subject.height, 21);
@@ -81,7 +81,7 @@ subject.setWidth(16).setHeight(16);
 offBoundaryCalled = false;
 
 subject.offBoundary = () => {
-	offBoundaryCalled = true;
+  offBoundaryCalled = true;
 };
 
 subject.setBoundary(new Rect().setX(0).setY(0).setWidth(200).setHeight(200));
@@ -90,7 +90,7 @@ assert.strictEqual(offBoundaryCalled, false);
 
 // off boundary
 subject.setBoundary(
-	new Rect().setX(20).setHeight(20).setWidth(100).setHeight(100)
+  new Rect().setX(20).setHeight(20).setWidth(100).setHeight(100)
 );
 subject.sync();
 assert.strictEqual(offBoundaryCalled, true);
@@ -99,9 +99,9 @@ assert.strictEqual(offBoundaryCalled, true);
 subject = new Sprite().setExpiration(5);
 
 for (let i = 0; i < 4; ++i) {
-	assert.strictEqual(subject.expired, false);
-	assert.strictEqual(subject.tick, i);
-	assert.strictEqual(subject.sync(), false);
+  assert.strictEqual(subject.expired, false);
+  assert.strictEqual(subject.tick, i);
+  assert.strictEqual(subject.sync(), false);
 }
 
 assert.strictEqual(subject.sync(), true);

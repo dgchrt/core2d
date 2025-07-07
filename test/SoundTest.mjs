@@ -5,12 +5,12 @@ import assert from "assert";
 import { Sound } from "../src/Sound.mjs";
 
 global.document = {
-	getElementById: () => {
-		return {
-			pause: () => {},
-			play: () => {},
-		};
-	},
+  getElementById: () => {
+    return {
+      pause: () => {},
+      play: () => {},
+    };
+  },
 };
 
 let subject = new Sound();
@@ -27,8 +27,8 @@ assert.strictEqual(subject._isFading, false);
 subject.fadeOut();
 assert.strictEqual(subject._isFading, false);
 subject._theme = {
-	pause: () => {},
-	play: () => {},
+  pause: () => {},
+  play: () => {},
 };
 subject.fadeOut();
 assert.strictEqual(subject._isFading, true);

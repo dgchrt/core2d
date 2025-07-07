@@ -8,13 +8,13 @@ import { Frame } from "../src/Frame.mjs";
 let subject;
 
 const IMAGE1 = {
-	width: 1,
-	height: 2,
+  width: 1,
+  height: 2,
 };
 
 const IMAGE2 = {
-	width: 3,
-	height: 4,
+  width: 3,
+  height: 4,
 };
 
 const FRAMES = [new Frame(IMAGE1, 1), new Frame(IMAGE2, 2)];

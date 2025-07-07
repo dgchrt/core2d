@@ -5,7 +5,7 @@ import assert from "assert";
 global.document = {};
 
 global.window = {
-	document,
+  document,
 };
 
 import { Command } from "../src/Command.mjs";
@@ -15,24 +15,24 @@ let controller;
 
 // mock
 const deviceMock = {
-	commands: (() => {
-		let result = {};
+  commands: (() => {
+    let result = {};
 
-		for (let key in Command) {
-			result[Command[key]] = true;
-		}
+    for (let key in Command) {
+      result[Command[key]] = true;
+    }
 
-		return result;
-	})(),
+    return result;
+  })(),
 };
 
 // no args constructor
 controller = Core2D.getController();
 
 for (let i in Command) {
-	let value = Command[i];
-	assert.strictEqual(controller.keyDown(value), undefined);
-	assert.strictEqual(controller.keyPush(value), undefined);
+  let value = Command[i];
+  assert.strictEqual(controller.keyDown(value), undefined);
+  assert.strictEqual(controller.keyPush(value), undefined);
 }
 
 // with all commands, first update
@@ -40,14 +40,14 @@ controller.setDevice(deviceMock);
 assert.strictEqual(controller.update(), undefined);
 
 for (let j in Command) {
-	assert.strictEqual(controller.keyDown(Command[j]), true);
-	assert.strictEqual(controller.keyPush(Command[j]), true);
+  assert.strictEqual(controller.keyDown(Command[j]), true);
+  assert.strictEqual(controller.keyPush(Command[j]), true);
 }
 
 // with all commands, second update
 assert.strictEqual(controller.update(), undefined);
 
 for (let k in Command) {
-	assert.strictEqual(controller.keyDown(Command[k]), true);
-	assert.strictEqual(controller.keyPush(Command[k]), false);
+  assert.strictEqual(controller.keyDown(Command[k]), true);
+  assert.strictEqual(controller.keyPush(Command[k]), false);
 }

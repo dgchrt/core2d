@@ -5,8 +5,8 @@ import assert from "assert";
 import { Frame } from "../src/Frame.mjs";
 
 const IMAGE = {
-	width: 1,
-	height: 2,
+  width: 1,
+  height: 2,
 };
 
 let subject;

@@ -8,9 +8,9 @@ let pointer;
 
 // mock
 const deviceMock = {
-	command: true,
-	x: 100,
-	y: 200,
+  command: true,
+  x: 100,
+  y: 200,
 };
 
 // without device

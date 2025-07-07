@@ -1,55 +1,55 @@
 {
-	"name": "core2d",
-	"type": "module",
-	"version": "2.11.1",
-	"description": "Multiplatform 2D interaction engine",
-	"files": [
-		"src"
-	],
-	"scripts": {
-		"format": "prettier --write .",
-		"lint": "eslint",
-		"prepublishOnly": "git checkout main && git pull --rebase && npm test && git push && git push --tags",
-		"test": "npm run lint && for test in ./test/*.mjs; do node $test; done",
-		"prepare": "husky"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/dgchrt/core2d.git"
-	},
-	"keywords": [
-		"2d",
-		"core",
-		"core2d",
-		"engine",
-		"game",
-		"game-engine",
-		"gamepad",
-		"interaction",
-		"keyboard",
-		"mouse",
-		"multi-platform",
-		"multimedia",
-		"object-oriented",
-		"sprites",
-		"scenes",
-		"touch"
-	],
-	"author": "Diogo Eichert",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/dgchrt/core2d/issues"
-	},
-	"funding": {
-		"url": "https://github.com/sponsors/dgchrt"
-	},
-	"homepage": "https://dgchrt.github.io/core2d/",
-	"devDependencies": {
-		"@eslint/js": "^9.30.1",
-		"eslint": "^9.30.1",
-		"eslint-config-prettier": "^10.1.5",
-		"globals": "^16.3.0",
-		"husky": "^9.1.7",
-		"prettier": "^3.6.2"
-	}
+  "name": "core2d",
+  "type": "module",
+  "version": "2.11.1",
+  "description": "Multiplatform 2D interaction engine",
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "format": "prettier --write .",
+    "lint": "eslint",
+    "prepublishOnly": "git checkout main && git pull --rebase && npm test && git push && git push --tags",
+    "test": "npm run lint && for test in ./test/*.mjs; do node $test; done",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dgchrt/core2d.git"
+  },
+  "keywords": [
+    "2d",
+    "core",
+    "core2d",
+    "engine",
+    "game",
+    "game-engine",
+    "gamepad",
+    "interaction",
+    "keyboard",
+    "mouse",
+    "multi-platform",
+    "multimedia",
+    "object-oriented",
+    "sprites",
+    "scenes",
+    "touch"
+  ],
+  "author": "Diogo Eichert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dgchrt/core2d/issues"
+  },
+  "funding": {
+    "url": "https://github.com/sponsors/dgchrt"
+  },
+  "homepage": "https://dgchrt.github.io/core2d/",
+  "devDependencies": {
+    "@eslint/js": "^9.30.1",
+    "eslint": "^9.30.1",
+    "eslint-config-prettier": "^10.1.5",
+    "globals": "^16.3.0",
+    "husky": "^9.1.7",
+    "prettier": "^3.6.2"
+  }
 }

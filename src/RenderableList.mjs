@@ -1,19 +1,19 @@
 "use strict";
 
 export class RenderableList {
-	constructor() {
-		this._elements = [];
-	}
+  constructor() {
+    this._elements = [];
+  }
 
-	add(renderable) {
-		this._elements.push(renderable);
-	}
+  add(renderable) {
+    this._elements.push(renderable);
+  }
 
-	render(context) {
-		for (let i = 0; i < this._elements.length; ++i) {
-			this._elements[i].render(context);
-		}
+  render(context) {
+    for (let i = 0; i < this._elements.length; ++i) {
+      this._elements[i].render(context);
+    }
 
-		this._elements.length = 0;
-	}
+    this._elements.length = 0;
+  }
 }

@@ -1,5 +1,5 @@
 "use static";
 
 export const ButtonLayoutMap = {
-	"8bitdo s": "reversed",
+  "8bitdo s": "reversed",
 };

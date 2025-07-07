@@ -7,9 +7,9 @@ import { Scene } from "../src/Scene.mjs";
 
 // init
 try {
-	Core2D.init();
+  Core2D.init();
 } catch (e) {
-	assert.strictEqual(e.message, "Could not get the next scene");
+  assert.strictEqual(e.message, "Could not get the next scene");
 }
 
 let scene = new Scene();
@@ -29,6 +29,6 @@ assert.strictEqual(Core2D.load(), undefined);
 // save then load data with namespace
 assert.strictEqual(Core2D.save({ lives: 1 }, "namespace"), undefined);
 assert.strictEqual(
-	JSON.stringify({ lives: 1 }),
-	JSON.stringify(Core2D.load("namespace"))
+  JSON.stringify({ lives: 1 }),
+  JSON.stringify(Core2D.load("namespace"))
 );

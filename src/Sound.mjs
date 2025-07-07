@@ -27,6 +27,10 @@ export class Sound {
 	mute() {
 		this._isMute = !this._isMute;
 
+		if (!this._theme) {
+			return;
+		}
+
 		if (!this._isMute) {
 			this._theme.play();
 		} else {

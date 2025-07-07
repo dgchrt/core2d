@@ -20,11 +20,23 @@ Please consider joining the [Discussions](https://github.com/dgchrt/core2d/discu
 
 # Features
 
+## Scene Management
+Core2D facilitates the organization of your app into one or more [scenes](src/Scene.mjs), which can be transitioned between. Each scene can contain multiple [sprites](src/Sprite.mjs), which are the basic building blocks for game objects.
+
+## Sound Management
+The engine provides a simple yet powerful sound system that allows for playing sound effects and background music. It also supports fading out the current theme, which is useful for smooth transitions between different music tracks.
+
 ## Collision Detection
 Translated to callbacks, to keep update logic clean.
 
 ## Assets Caching
 Assets and their transformations are reused automatically to keep a solid performance.
+
+## Transformations
+Core2D provides a set of functions to manipulate images, including rotation, flipping, and colorization. These transformations are cached, so they are only applied once per image.
+
+## Tilemap
+The `Scene` class provides a `build` method that allows for creating tile-based scenes from a map. This is useful for creating levels in platformers, RPGs, and other genres that use tile-based graphics.
 
 ## User Input
 Human interaction is unified via abstractions, so that apps will just work, regardless of the devices in use.
@@ -41,6 +53,19 @@ Mice or touch screen.
 
 ## Virtual Resolution
 Internal geometry frees the app logic from displays, i.e. your app can have an internal logic resolution of 800x600, while running on any display size.
+
+# Plugins
+Core2D comes with a set of optional plugins that can be used to extend its functionality. These plugins are located in the `src/plugin` directory and can be used by importing them into your project.
+
+- **BaseTile:** A basic tile sprite that can be used with the `Scene.build` method.
+- **ClickableSprite:** A sprite that can be clicked or tapped.
+- **ControllableSprite:** A sprite that can be controlled by a gamepad or keyboard.
+- **CursorSprite:** A sprite that follows the pointer.
+- **Fog:** A simple fog effect.
+- **FontSprite:** A sprite that displays text using a custom font.
+- **JumperSprite:** A sprite that can jump.
+- **RandomRectTransition:** A transition that fills the screen with random rectangles.
+- **Starfield:** A simple starfield effect.
 
 # Contributing
 The core of the library (under `src/`) should remain agnostic and lean. Updates to the core library are usually related to technology developments in the platform (web API advances), while staying true to the basic concepts of the library, which are common to all apps.

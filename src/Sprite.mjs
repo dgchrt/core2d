@@ -84,6 +84,12 @@ export class Sprite extends Rect {
     this.maxSpeedY = 0;
 
     /**
+     * The scene that the sprite belongs to.
+     * @type {import("./Scene.mjs").Scene}
+     */
+    this.scene = null;
+
+    /**
      * Whether the sprite is solid. Solid sprites can collide with other solid sprites.
      * @type {boolean}
      */
